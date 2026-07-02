@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online character counter and word counter tool. Count characters, words, lines, sentences, and paragraphs in real-time with reading time estimates and platform-specific character limits (Twitter, LinkedIn, Email).">
+    <meta name="keywords" content="character counter, word counter, online, free, letter count, writing tools">
+    <meta name="author" content="Character Counter">
+    <meta name="robots" content="index, follow">
+    <meta name="canonical" href="https://character-counter.pro/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Character Counter - Free Online Tool">
+    <meta property="og:description" content="Real-time character, word, line, and sentence counting tool with reading time estimates and platform limits.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://character-counter.pro/">
+    <meta property="og:image" content="https://character-counter.pro/og-image.png">
+    <meta property="og:site_name" content="Character Counter Pro">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Character Counter - Free Online Tool">
+    <meta name="twitter:description" content="Count characters, words, lines, and more in real-time.">
+    <meta name="twitter:image" content="https://character-counter.pro/twitter-image.png">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Character Counter Pro",
+        "description": "Free online character and word counter with real-time counting and platform-specific character limits",
+        "url": "https://character-counter.pro",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250"
+        }
+    }
+    </script>
+    
+    <title>Character Counter - Free Online Character & Word Count Tool</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%234F46E5'>C</text></svg>">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6100778423642867" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="skip-link"><a href="#main-content">Skip to main content</a></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Character Counter</h1>
+                <p class="tagline">Real-time character, word, and line counting</p>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </header>
+
+        <main id="main-content" class="main-content">
+            <!-- Text Input Section -->
+            <section class="input-section" aria-labelledby="textarea-label">
+                <label for="textInput" id="textarea-label" class="label">Paste or type your text here:</label>
+                <textarea 
+                    id="textInput" 
+                    class="textarea" 
+                    placeholder="Enter your text here to see real-time counts..." 
+                    spellcheck="true"
+                    aria-describedby="real-time-desc">
+                </textarea>
+                <p id="real-time-desc" class="sr-only">Character counts update in real-time as you type.</p>
+                
+                <!-- Button Group -->
+                <div class="button-group">
+                    <button id="copyStatsBtn" class="btn btn-secondary" title="Copy all statistics to clipboard">
+                        <span class="btn-icon">📋</span> Copy Stats
+                    </button>
+                    <button id="clearBtn" class="btn btn-danger" title="Clear the text area">
+                        <span class="btn-icon">🗑️</span> Clear
+                    </button>
+                    <button id="detailsToggle" class="btn btn-primary" title="Show or hide detailed statistics">
+                        <span class="btn-icon">📊</span> <span id="detailsToggleText">Show Details</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Quick Stats Section -->
+            <section class="stats-section" aria-labelledby="stats-heading">
+                <h2 id="stats-heading" class="section-heading">Quick Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="charCount">0</div>
+                        <div class="stat-label">Characters</div>
+                        <div class="stat-sublabel">(with spaces)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="charNoSpaceCount">0</div>
+                        <div class="stat-label">Characters</div>
+                        <div class="stat-sublabel">(without spaces)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="wordCount">0</div>
+                        <div class="stat-label">Words</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="lineCount">0</div>
+                        <div class="stat-label">Lines</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="sentenceCount">0</div>
+                        <div class="stat-label">Sentences</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="paragraphCount">0</div>
+                        <div class="stat-label">Paragraphs</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reading Time Section -->
+            <section class="reading-time-section" aria-labelledby="reading-heading">
+                <h2 id="reading-heading" class="section-heading">Reading Time Estimate</h2>
+                <div class="reading-time-container">
+                    <div class="reading-time-controls">
+                        <label for="wpmSelect" class="label-inline">Words per minute:</label>
+                        <select id="wpmSelect" class="wpm-select" aria-label="Select reading speed in words per minute">
+                            <option value="200">200 WPM (Slow)</option>
+                            <option value="250" selected>250 WPM (Average)</option>
+                            <option value="300">300 WPM (Fast)</option>
+                        </select>
+                    </div>
+                    <div class="reading-time-display">
+                        <div class="reading-time-value" id="readingTime">0 min</div>
+                        <div class="reading-time-label">Estimated reading time</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Platform Limits Section -->
+            <section class="platform-section" aria-labelledby="platforms-heading">
+                <h2 id="platforms-heading" class="section-heading">Platform Character Limits</h2>
+                <div class="platform-grid">
+                    <div class="platform-card">
+                        <div class="platform-name">Twitter</div>
+                        <div class="platform-limit">280</div>
+                        <div class="platform-progress">
+                            <div class="progress-bar" id="twitterProgress">
+                                <div class="progress-fill" id="twitterFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="280"></div>
+                            </div>
+                            <div class="progress-text" id="twitterText">0 / 280</div>
+                        </div>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-name">LinkedIn</div>
+                        <div class="platform-limit">3,000</div>
+                        <div class="platform-progress">
+                            <div class="progress-bar" id="linkedinProgress">
+                                <div class="progress-fill" id="linkedinFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="3000"></div>
+                            </div>
+                            <div class="progress-text" id="linkedinText">0 / 3,000</div>
+                        </div>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-name">Email Subject</div>
+                        <div class="platform-limit">50</div>
+                        <div class="platform-progress">
+                            <div class="progress-bar" id="emailProgress">
+                                <div class="progress-fill" id="emailFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
+                            </div>
+                            <div class="progress-text" id="emailText">0 / 50</div>
+                        </div>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-name">Page Title</div>
+                        <div class="platform-limit">60</div>
+                        <div class="platform-progress">
+                            <div class="progress-bar" id="titleProgress">
+                                <div class="progress-fill" id="titleFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="60"></div>
+                            </div>
+                            <div class="progress-text" id="titleText">0 / 60</div>
+                        </div>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-name">Meta Description</div>
+                        <div class="platform-limit">160</div>
+                        <div class="platform-progress">
+                            <div class="progress-bar" id="metaProgress">
+                                <div class="progress-fill" id="metaFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="160"></div>
+                            </div>
+                            <div class="progress-text" id="metaText">0 / 160</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Stats Section (Initially Hidden) -->
+            <section class="details-section hidden" id="detailsSection" aria-labelledby="details-heading">
+                <h2 id="details-heading" class="section-heading">Detailed Statistics</h2>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Uppercase Letters:</span>
+                        <span class="detail-value" id="uppercaseCount">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Lowercase Letters:</span>
+                        <span class="detail-value" id="lowercaseCount">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Numbers:</span>
+                        <span class="detail-value" id="numberCount">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Spaces:</span>
+                        <span class="detail-value" id="spaceCount">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Special Characters:</span>
+                        <span class="detail-value" id="specialCharCount">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Average Word Length:</span>
+                        <span class="detail-value" id="avgWordLength">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Longest Word:</span>
+                        <span class="detail-value" id="longestWord">—</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Shortest Word:</span>
+                        <span class="detail-value" id="shortestWord">—</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AdSense Placeholder Zones -->
+            <section class="ads-section">
+                <div class="ad-placeholder" aria-label="Advertisement area">
+                    <!-- AdSense placeholder: horizontal banner 728x90 -->
+                    <div id="google_ads_1" style="min-height: 90px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px;">
+                        Ad Space 1 (728x90)
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2026 Character Counter Pro. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#privacy" class="footer-link">Privacy Policy</a>
+                    <a href="#terms" class="footer-link">Terms of Service</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

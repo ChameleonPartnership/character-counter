@@ -1,0 +1,41 @@
+# Character Counter Pro - robots.txt
+# Production SEO configuration
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Disallow: /admin/
+Disallow: /private/
+
+# Crawl delay (in seconds)
+Crawl-delay: 1
+
+# Request rate limit (requests per second)
+Request-rate: 10/1s
+
+# Sitemaps
+Sitemap: https://character-counter.pro/sitemap.xml
+Sitemap: https://character-counter.pro/sitemap-index.xml
+
+# Allow specific search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

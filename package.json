@@ -1,0 +1,45 @@
+{
+  "name": "character-counter-pro",
+  "version": "1.0.0",
+  "description": "Production-ready free online character and word counter with real-time counting, reading time estimates, and platform-specific limits",
+  "main": "index.html",
+  "author": "Character Counter Pro",
+  "license": "MIT",
+  "keywords": [
+    "character counter",
+    "word counter",
+    "online tool",
+    "free",
+    "letter count",
+    "writing tools",
+    "content optimization"
+  ],
+  "homepage": "https://character-counter.pro",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/character-counter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/character-counter/issues"
+  },
+  "scripts": {
+    "start": "python -m http.server 8000 --directory .",
+    "build": "echo 'No build step needed - static files only'",
+    "deploy": "vercel",
+    "lint": "eslint assets/js/app.js",
+    "test": "echo 'Add test suite'",
+    "lighthouse": "lighthouse index.html --output-path=./lighthouse-report.html"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ]
+}
