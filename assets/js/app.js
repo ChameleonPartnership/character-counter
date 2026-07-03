@@ -562,12 +562,3 @@ document.addEventListener('DOMContentLoaded', () => {
         detailsToggle.setAttribute('aria-expanded', 'false');
     }
 });
-
-/**
- * Service Worker registration for offline support (optional enhancement)
- */
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').catch(() => {
-        // Service worker not available, app works fine without it
-    });
-}

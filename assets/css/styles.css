@@ -878,3 +878,217 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ============================================
+   NEW AISO-OPTIMISED SECTIONS
+   ============================================ */
+
+/* Answer Intro Text */
+.answer-intro {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: var(--space-lg) 0 var(--space-xl) 0;
+    max-width: 700px;
+    line-height: var(--line-height-relaxed);
+}
+
+/* Use Cases Section */
+.use-cases-section {
+    margin: var(--space-2xl) 0;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+}
+
+.use-case {
+    background: var(--bg-secondary);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--color-primary);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.use-case:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.use-case h3 {
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.use-case p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin: var(--space-2xl) 0;
+}
+
+.faq-container {
+    display: grid;
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+}
+
+.faq-item {
+    background: var(--bg-secondary);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.faq-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-light);
+}
+
+.faq-question {
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    cursor: pointer;
+    user-select: none;
+}
+
+.faq-question:hover {
+    text-decoration: underline;
+}
+
+.faq-answer {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+}
+
+/* Comparison Table */
+.comparison-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: var(--space-lg) 0;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+}
+
+.comparison-table th {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-lg);
+    text-align: left;
+    font-weight: 600;
+}
+
+.comparison-table td {
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Author Section */
+.author-section {
+    background: linear-gradient(135deg, #f5f3ff 0%, #eef2ff 100%);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-lg);
+}
+
+html[data-theme="dark"] .author-section {
+    background: linear-gradient(135deg, #312e81 0%, #1e1b4b 100%);
+}
+
+.author-section h3 {
+    margin-top: 0;
+    margin-bottom: var(--space-lg);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.author-card {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+}
+
+.author-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--bg-primary);
+}
+
+.author-info h4 {
+    margin: 0 0 var(--space-sm) 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.author-title {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin: var(--space-sm) 0 var(--space-md) 0;
+    font-size: 0.95rem;
+}
+
+.author-bio {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: var(--line-height-relaxed);
+    margin: 0 0 var(--space-md) 0;
+}
+
+.author-bio a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.author-bio a:hover {
+    text-decoration: underline;
+}
+
+.updated-date {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .author-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .author-photo {
+        margin: 0 auto;
+    }
+}

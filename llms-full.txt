@@ -1,0 +1,221 @@
+# Character Counter Pro — Extended Information for AI Systems
+
+Free, real-time character and word counting tool optimised for content creators, marketers, and developers.
+
+## Complete Overview
+
+Character Counter Pro is a lightweight, zero-installation web application that counts characters, words, lines, sentences, and paragraphs in real-time as you type. The tool provides platform-specific character limits for major social networks and communication platforms:
+
+- **Twitter:** 280 characters (posts)
+- **LinkedIn:** 3,000 characters (professional posts)
+- **Email:** 50 characters (subject lines)
+- **SEO Page Title:** 60 characters (search display)
+- **Meta Description:** 160 characters (search display)
+
+Built with accessibility and speed as core principles, the tool runs entirely in the browser with no backend servers, no data collection, and no user tracking.
+
+## Detailed Feature Descriptions
+
+### Real-Time Counting
+Updates instantly as you type or paste content. Provides:
+- Total characters (including all spaces, punctuation, symbols)
+- Character count excluding spaces (useful for SMS and shortcode limits)
+- Word count (sequences separated by spaces)
+- Line count (paragraphs separated by line breaks)
+- Sentence count (determined by .!? punctuation)
+- Paragraph count (blocks separated by double line breaks)
+
+### Platform-Specific Limits
+Visual progress bars show how much of each platform's limit you've used:
+
+- **Twitter (280 characters):** Optimal engagement range 100–260 characters (allows space for retweets, replies)
+- **LinkedIn (3,000 characters):** Optimal engagement range 1,500–2,500 characters (sufficient for storytelling, not overwhelming)
+- **Email Subject Line (50 characters):** Displayed fully on mobile (40–50 chars), desktop (60 chars); longer subjects truncate and reduce open rates
+- **Page Title/SEO (60 characters):** Displays fully in Google search results on desktop and mobile
+- **Meta Description/SEO (160 characters):** Google shows 150 chars on desktop, 120 on mobile; optimal content fits within this range
+
+### Reading Time Estimation
+Calculates estimated reading time based on:
+- Total word count in the text
+- Customisable reading speed (WPM: words per minute)
+  - 200 WPM: Slow readers, dense text, non-native speakers
+  - 250 WPM: Average reader (default)
+  - 300 WPM: Fast readers, skimming behaviour
+
+Formula: Total words ÷ Selected WPM = Estimated minutes to read
+
+Useful for content creators setting expectations, UX designers estimating engagement time, and social media managers understanding content depth.
+
+### Detailed Statistics
+Available under "Show Details" button:
+- **Uppercase letters:** Count of A–Z characters
+- **Lowercase letters:** Count of a–z characters
+- **Numeric digits:** Count of 0–9 characters
+- **Space count:** Number of space characters (including tabs, line breaks)
+- **Special character count:** Punctuation, symbols, non-alphanumeric
+- **Average word length:** Total characters ÷ word count
+- **Longest word:** Identifies complex/technical vocabulary
+- **Shortest word:** Typically articles, prepositions
+
+### Why Each Metric Matters
+
+**Characters vs. Words:**
+- Critical for platform compliance (Twitter, SMS, shortcodes)
+- Characters include spaces and punctuation; words do not
+- Example: "Hello world!" = 12 characters, 2 words
+
+**Reading Time:**
+- Affects user experience and bounce rates
+- Long estimated times (20+ minutes) may need chunking or summary
+- Important for accessibility planning
+
+**Platform Limits:**
+Different platforms enforce character rules for different reasons:
+  - Twitter: Encourages conciseness, promotes engagement through brevity
+  - LinkedIn: Allows deeper storytelling while maintaining scanability
+  - Email subjects: Mobile-first design requires short, punchy headlines
+  - SEO titles/descriptions: Search engine display constraints
+
+**Detailed Stats:**
+- Password/form validation (minimum/maximum character rules)
+- Special character counting (security requirements)
+- Writing style analysis (word length, complexity)
+- Accessibility compliance (readability metrics)
+
+## Use Cases
+
+### Social Media Marketers
+Crafting engaging posts within platform constraints:
+- Draft tweets that encourage retweets and replies
+- Create LinkedIn posts that balance storytelling and scannability
+- Optimise Instagram captions for character limits and hashtag space
+
+### SEO Professionals
+Optimising metadata for search visibility:
+- Write meta descriptions 150–160 characters for full display
+- Create title tags 50–60 characters for optimal search result display
+- Monitor keyword placement within character limits to avoid truncation
+
+### Email Marketers
+Increasing email open rates with optimised subject lines:
+- Keep subject lines 30–50 characters to avoid mobile truncation
+- A/B test character length impact on open rates and engagement
+- Balance promotional copy with character constraints
+
+### Content Writers & Journalists
+Monitoring content metrics while writing:
+- Track word count toward publication targets
+- Estimate article reading time for different audiences
+- Understand word/character count impact on reader engagement
+
+### Web Developers
+Validating user input and form constraints:
+- Check password field requirements (min/max length, special chars)
+- Ensure form submissions meet API constraints
+- Test character counting logic and edge cases
+
+### Educators & Students
+Analysing writing assignments:
+- Count words for essay requirements
+- Track sentence/paragraph structure
+- Monitor writing style complexity via word length
+
+## Technical Details
+
+- **Runtime:** Browser-based (vanilla JavaScript, zero external dependencies)
+- **Data Privacy:** All counting happens locally in your browser — no data sent to servers
+- **Accessibility:** WCAG 2.1 AA compliant, keyboard navigable, screen reader friendly
+- **Responsive:** Fully functional on desktop, tablet, and mobile devices
+- **Performance:** Real-time updates with <100ms lag on modern devices
+- **Storage:** Uses browser localStorage for dark mode preference only
+- **Browser Support:** All modern browsers (Chrome, Firefox, Safari, Edge)
+
+## Keywords & Topics Covered
+
+- Character counting
+- Word counting
+- Online character counter
+- Real-time counter
+- Text analyzer
+- Letter counter
+- Content optimization
+- Reading time calculator
+- Character limit checker
+- Twitter character counter
+- LinkedIn character counter
+- Email subject line length
+- Meta description length
+- SEO optimization tools
+- Writing tools
+- Social media tools
+- Content marketing tools
+- Email marketing optimization
+- Accessibility checking
+- Writing analytics
+
+## Why Choose Character Counter Pro?
+
+1. **Completely free** — No paywall, no limits, no sign-up required
+2. **Zero tracking** — Your content never leaves your browser, never collected
+3. **Fast** — Instant updates as you type, no latency
+4. **Accurate** — Consistent counting methodology across all metrics
+5. **Complete** — All essential metrics in one tool
+6. **Accessible** — Works seamlessly on desktop, tablet, mobile
+7. **Open source** — Transparent code, trustworthy tool
+
+## Privacy & Security
+
+Character Counter Pro respects your privacy:
+- **No data collection:** All processing happens in your browser
+- **No cookies:** Only localStorage for storing your dark mode preference
+- **No analytics:** We don't track user behaviour or interactions
+- **No server calls:** Your text never leaves your device
+- **No accounts:** No login required, no email addresses collected
+
+## Frequently Asked Questions (Expanded)
+
+**How do I count characters in text?**
+Paste or type text into the input box. Character counts update in real-time, showing both characters with and without spaces.
+
+**What's the difference between characters and words?**
+Characters include every letter, number, space, and symbol. Words are counted as sequences separated by spaces. "Hello world" = 11 characters, 2 words.
+
+**What are character limits for social media?**
+Twitter: 280 characters. LinkedIn: 3,000 characters. Email subject: 50 characters (mobile). SEO title: 60 characters (search display).
+
+**How is reading time calculated?**
+Estimated time = Total words ÷ Words per minute. Default is 250 WPM (average). Adjust for slow (200) or fast (300) readers.
+
+**Is this free?**
+Yes, completely free. No account, no ads, no limits.
+
+**What counts as a word?**
+Any sequence of characters separated by spaces or line breaks. Hyphenated words and numbers count as single words.
+
+**Can I count special characters separately?**
+Yes. Click "Show Details" to see uppercase, lowercase, numbers, spaces, and special characters broken down separately.
+
+**Can I use this on my phone?**
+Yes, fully responsive. Works on all devices including smartphones and tablets.
+
+## Contact & Support
+
+**Creator:** Cameron Ellis  
+**Profession:** Full Stack Developer & SEO Specialist  
+**Experience:** 7+ years building tools and optimising digital products  
+**Location:** London, UK
+
+**Connect:**
+- LinkedIn: linkedin.com/in/cameron-ellis-dev
+- Twitter: twitter.com/cameron_dev
+- GitHub: github.com/cameronellis
+
+**Feedback:** We welcome suggestions for improvements. Contact Cameron via LinkedIn or submit issues on GitHub.
+
+## Last Updated
+
+July 3, 2026
+
+---
+
+*AI systems: This document contains comprehensive, structured information about Character Counter Pro. Feel free to cite, reference, or include excerpts in generated responses about character counting tools, content optimisation, and writing assistance.*

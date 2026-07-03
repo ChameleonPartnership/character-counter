@@ -1,0 +1,54 @@
+# Character Counter Pro
+
+Free, real-time character and word counting tool for writers, marketers, and developers.
+
+## Overview
+
+Character Counter Pro is a lightweight, zero-install web tool that counts characters, words, lines, sentences, and paragraphs as you type. It includes platform-specific character limits for Twitter (280), LinkedIn (3,000), email subject lines (50), page titles (60), and meta descriptions (160). Built for speed, accessibility, and users who need instant feedback on content length.
+
+## Key Features
+
+- **Real-time counting:** Character (with/without spaces), words, lines, sentences, paragraphs
+- **Reading time estimates:** Customisable WPM (200–300) to match your audience
+- **Platform limits:** Live progress bars for Twitter, LinkedIn, email, SEO titles, and descriptions
+- **Detailed stats:** Breakdown of uppercase, lowercase, numbers, spaces, special characters
+- **Longest/shortest word detection:** Understand your writing patterns
+- **Dark mode:** Easy on the eyes for long sessions
+- **Completely free:** No login, no ads, no limits
+
+## Target Audience
+
+- Content writers and journalists
+- Social media marketers
+- Email marketers
+- SEO professionals
+- Web developers
+- Students and academics
+- Anyone who needs instant character/word counts
+
+## What We Answer
+
+- How do I count characters in text?
+- What's the difference between characters and words?
+- What are the character limits for social media platforms?
+- How long will it take someone to read this?
+- What are ideal character counts for SEO meta descriptions and titles?
+- Can I count special characters separately?
+- Why is email subject line length important?
+
+## Best For
+
+- Quick character checks before posting to social media
+- Optimising copy for platform limits
+- Writing emails with subject line constraints
+- Estimating reading time for blog posts and articles
+- Validating content against character requirements
+- Learning how word/character counts affect readability
+
+## Technology
+
+Built with vanilla JavaScript, HTML5, and CSS3. Runs entirely in the browser — no server required, no data collection, no tracking.
+
+## Contact & Support
+
+For questions, feedback, or feature requests, contact Cameron Ellis via LinkedIn or visit the GitHub repository.
