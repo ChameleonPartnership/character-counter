@@ -24,15 +24,8 @@
   },
   "scripts": {
     "dev": "python3 -m http.server 8000",
-    "start": "python -m http.server 8000 --directory .",
-    "build": "echo 'No build step needed - static files only'",
-    "deploy": "vercel",
-    "lint": "eslint assets/js/app.js",
-    "test": "echo 'Add test suite'",
-    "lighthouse": "lighthouse index.html --output-path=./lighthouse-report.html"
-  },
-  "devDependencies": {
-    "eslint": "^8.0.0"
+    "start": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build needed'"
   },
   "engines": {
     "node": ">=14.0.0"
