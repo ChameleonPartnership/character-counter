@@ -1,24 +1,9 @@
 {
-  "version": 2,
-  "name": "character-counter-pro",
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  },
+  "buildCommand": "echo 'Static site'",
+  "outputDirectory": ".",
   "headers": [
     {
-      "source": "/assets/(.*\\.(js|css|woff|woff2|ttf|eot)$)",
+      "source": "/assets/.*\\.(js|css|woff|woff2|ttf|eot)$",
       "headers": [
         {
           "key": "Cache-Control",
@@ -52,7 +37,7 @@
       ]
     },
     {
-      "source": "/(robots.txt|sitemap.xml)",
+      "source": "/(robots\\.txt|sitemap\\.xml)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -84,6 +69,12 @@
           "value": "geolocation=(), microphone=(), camera=()"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
