@@ -2,7 +2,7 @@
   "outputDirectory": ".",
   "headers": [
     {
-      "source": "/assets/.*\.(js|css|woff|woff2|ttf|eot)$",
+      "source": "/assets/:path*",
       "headers": [
         {
           "key": "Cache-Control",
@@ -36,7 +36,16 @@
       ]
     },
     {
-      "source": "/{robots.txt,sitemap.xml}",
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
       "headers": [
         {
           "key": "Cache-Control",
