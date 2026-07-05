@@ -2,6 +2,8 @@
 
 Free, real-time character and word counting tool optimised for content creators, marketers, and developers.
 
+**Last updated:** 2026-07-05
+
 ## Complete Overview
 
 Character Counter Pro is a lightweight, zero-installation web application that counts characters, words, lines, sentences, and paragraphs in real-time as you type. The tool provides platform-specific character limits for major social networks and communication platforms:

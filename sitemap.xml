@@ -6,7 +6,7 @@
     <!-- Main page -->
     <url>
         <loc>https://character-counter.pro/</loc>
-        <lastmod>2026-07-02</lastmod>
+        <lastmod>2026-07-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -14,7 +14,7 @@
     <!-- Character Counter Tool -->
     <url>
         <loc>https://character-counter.pro/counter</loc>
-        <lastmod>2026-07-02</lastmod>
+        <lastmod>2026-07-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -22,7 +22,7 @@
     <!-- Word Counter Tool -->
     <url>
         <loc>https://character-counter.pro/word-counter</loc>
-        <lastmod>2026-07-02</lastmod>
+        <lastmod>2026-07-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -30,7 +30,7 @@
     <!-- Help/Documentation -->
     <url>
         <loc>https://character-counter.pro/help</loc>
-        <lastmod>2026-07-02</lastmod>
+        <lastmod>2026-07-05</lastmod>
         <changefreq>quarterly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -38,7 +38,7 @@
     <!-- About Page -->
     <url>
         <loc>https://character-counter.pro/about</loc>
-        <lastmod>2026-07-02</lastmod>
+        <lastmod>2026-07-05</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -46,7 +46,7 @@
     <!-- Privacy Policy -->
     <url>
         <loc>https://character-counter.pro/privacy</loc>
-        <lastmod>2026-07-02</lastmod>
+        <lastmod>2026-07-05</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
@@ -54,7 +54,7 @@
     <!-- Terms of Service -->
     <url>
         <loc>https://character-counter.pro/terms</loc>
-        <lastmod>2026-07-02</lastmod>
+        <lastmod>2026-07-05</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
