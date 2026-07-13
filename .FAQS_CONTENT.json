@@ -1,0 +1,50 @@
+[
+  [
+    "Why count characters?",
+    "Character counts matter for social media limits, SEO metadata, SMS messages, form fields, and writing constraints."
+  ],
+  [
+    "What is a character?",
+    "A character is any symbol: letters (A-Z, a-z), numbers (0-9), spaces, punctuation, and special characters."
+  ],
+  [
+    "Does space count as a character?",
+    "Yes. Spaces between words count as individual characters."
+  ],
+  [
+    "Why do social media platforms have limits?",
+    "Limits encourage concise communication and are based on historical technical constraints and user experience."
+  ],
+  [
+    "What is Twitter's character limit?",
+    "Twitter allows 280 characters per tweet (increased from 140 in 2017)."
+  ],
+  [
+    "What is Instagram's character limit?",
+    "Instagram allows up to 2,200 characters in captions and 150 characters in bio."
+  ],
+  [
+    "What is the LinkedIn headline character limit?",
+    "LinkedIn headline has a 120 character limit for profile headlines."
+  ],
+  [
+    "What is the optimal meta description length?",
+    "Meta descriptions should be 150-160 characters to display fully in Google search results."
+  ],
+  [
+    "What is the optimal title tag length?",
+    "Title tags should be 50-60 characters to display fully in search results (desktop)."
+  ],
+  [
+    "How do I count words vs. characters?",
+    "Words are typically space-separated; characters include all symbols. Character count is always higher."
+  ],
+  [
+    "Why is character counting important in SEO?",
+    "Proper character counts ensure metadata displays correctly in search results and improves click-through rates."
+  ],
+  [
+    "What if my character count is too long?",
+    "Edit for brevity, remove unnecessary words, or use abbreviations and symbols to fit within limits."
+  ]
+]
