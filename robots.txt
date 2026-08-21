@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://character-counter.pro/sitemap.xml
+Sitemap: https://www.character-counter.pro/sitemap.xml
