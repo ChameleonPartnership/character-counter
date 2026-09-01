@@ -1,604 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free character counter for words, letters, lines and reading time, with practical limits for SEO titles, email subjects, social posts and drafts.">
-    <meta name="keywords" content="character counter, word counter, online, free, letter count, writing tools">
-    <meta name="author" content="Character Counter">
-    <meta name="robots" content="index, follow">
-    <meta property="article:published_time" content="2026-01-15T10:00:00Z">
-    <meta property="article:modified_time" content="2026-08-11T00:00:00Z">
-    <link rel="canonical" href="https://www.character-counter.pro/">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Character Counter - Free Online Word and Letter Count Tool">
-    <meta property="og:description" content="Count characters, words, lines, sentences and reading time in your browser, then compare drafts against SEO, email and social limits.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.character-counter.pro/">
-    <meta property="og:image" content="https://www.character-counter.pro/og-image.png">
-    <meta property="og:site_name" content="Character Counter Pro">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Character Counter - Free Online Word and Letter Count Tool">
-    <meta name="twitter:description" content="Count text length, reading time and platform limits in your browser.">
-    <meta name="twitter:image" content="https://www.character-counter.pro/twitter-image.png">
-    
-    <!-- Structured Data (Schema.org) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Character Counter Pro",
-        "description": "Free online character and word counter with real-time counting, reading time estimates, and platform-specific character limits",
-        "url": "https://www.character-counter.pro",
-        "applicationCategory": "UtilityApplication",
-        "operatingSystem": "Web",
-        "datePublished": "2026-01-15",
-        "dateModified": "2026-08-11",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "author": {
-            "@type": "Organization",
-            "name": "Chameleon Partnership"
-        }
-    }
-    </script>
-
-    <!-- FAQPage Schema for AI Citation -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-1",
-          "name": "How do I count characters in text?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Simply paste or type your text into the input box. Character counts update in real-time, showing both characters with and without spaces. Our tool instantly counts all characters, including letters, numbers, spaces, and symbols."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-2",
-          "name": "What's the difference between characters and words?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Characters include every letter, number, space, and symbol. Words are counted as sequences separated by spaces. For example, 'Hello world' is 11 characters (including the space) but 2 words."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-3",
-          "name": "What are platform character limits used for?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Different platforms enforce different character limits. Twitter allows 280 characters per post, LinkedIn allows 3,000, email subject lines are optimal at 50 characters, and SEO page titles work best under 60 characters for full display in search results."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-4",
-          "name": "How is reading time calculated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Reading time is estimated by dividing total word count by your selected words-per-minute (WPM) rate. The default is 250 WPM (average reader), but you can adjust to 200 WPM (slow) or 300 WPM (fast) depending on text complexity."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-5",
-          "name": "Is Character Counter Pro free to use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, the character counter is free to use. No sign-up, credit card, or account is required, and the core counting workflow remains available in the browser."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-6",
-          "name": "What's the best Twitter character count to aim for?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Twitter's limit is 280 characters. For maximum engagement and easy retweets, aim for 100–260 characters — long enough to convey your message, but short enough to allow space for replies and comments from other users."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-7",
-          "name": "How do I optimise my LinkedIn post length?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "LinkedIn posts can be up to 3,000 characters. For optimal engagement, aim for 1,500–2,500 characters — long enough to tell a compelling story with details and personality, but short enough to keep readers engaged without requiring a click to 'see more'."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-8",
-          "name": "Why do email subject lines have a 50-character limit?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Email clients display approximately 40–50 characters on mobile and 60 on desktop. Subject lines longer than 50 characters are truncated on mobile, reducing visibility and click-through rates. Keep subject lines at 30–50 characters for optimal preview display."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-9",
-          "name": "What's the ideal length for an SEO meta description?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Google displays 150–160 characters on desktop and 120 characters on mobile. Write meta descriptions between 150–160 characters to ensure they display fully in search results, and include your primary keyword naturally."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-10",
-          "name": "Can I count special characters separately?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Click 'Show Details' to see a complete breakdown including uppercase letters, lowercase letters, numbers, spaces, and special characters separately. This is useful for password requirements and form validation."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-11",
-          "name": "What counts as a 'word' in your counter?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A word is any sequence of characters separated by spaces or line breaks. Numbers and hyphenated words (e.g., 'well-structured') each count as single words. Standalone punctuation marks do not count as words."
-          }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://www.character-counter.pro/#faq-12",
-          "name": "Can I use this tool on my phone?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, Character Counter Pro is fully responsive and works on all devices including smartphones and tablets. Simply visit the site on your mobile browser and start typing — all features work exactly the same."
-          }
-        }
-      ]
-    }
-    </script>
-
-    <!-- AISO audit trail: Organization schema added for entity recognition, 2026-07-05. -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Character Counter Pro",
-      "url": "https://www.character-counter.pro/",
-      "description": "Privacy-first browser-based character, word, reading time, and platform-limit counting tools.",
-      "sameAs": []
-    }
-    </script>
-
-    <!-- AISO audit trail: BreadcrumbList schema added for crawler context, 2026-07-05. -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.character-counter.pro/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Character Counter",
-          "item": "https://www.character-counter.pro/#main-content"
-        }
-      ]
-    }
-    </script>
-    
-    <title>Character Counter - Free Word, Letter and Reading Time Tool</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%234F46E5'>C</text></svg>">
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6100778423642867"
-     crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy-first character counter for professional copy teams. Count words, letters, lines, reading time and platform limits in your browser.">
+  <meta name="author" content="Chameleon Partnership">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.character-counter.pro/">
+  <meta property="og:title" content="Character Counter Pro - Privacy-First Word and Letter Count Tool">
+  <meta property="og:description" content="Privacy-first character counter for professional copy teams. Count words, letters, lines, reading time and platform limits in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.character-counter.pro/">
+  <meta property="og:site_name" content="Character Counter Pro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Character Counter Pro - Privacy-First Word and Letter Count Tool">
+  <meta name="twitter:description" content="Privacy-first character counter for professional copy teams. Count words, letters, lines, reading time and platform limits in your browser.">
+  <title>Character Counter Pro - Privacy-First Word and Letter Count Tool</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%234F46E5'>C</text></svg>">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6100778423642867" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Character Counter Pro","url":"https://www.character-counter.pro/","applicationCategory":"UtilityApplication","operatingSystem":"Web","datePublished":"2026-01-15","dateModified":"2026-09-01","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"author":{"@type":"Organization","name":"Chameleon Partnership"}}</script>
 </head>
 <body>
-    <div class="skip-link"><a href="#main-content">Skip to main content</a></div>
+  <div class="skip-link"><a href="#main-content">Skip to main content</a></div>
+  <div class="container">
+
+    <header class="header">
+      <div class="header-content">
+        <h1>Character Counter</h1>
+        <p class="tagline">Privacy-first counting for professional copy teams</p>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </header>
     
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <h1>Character Counter</h1>
-                <p class="tagline">Real-time character, word, and line counting</p>
-            </div>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-                <span class="theme-icon">🌙</span>
-            </button>
-        </header>
-
-        <main id="main-content" class="main-content">
-            
-
-            <!-- AISO audit trail: visible answer-first blurb added above the tool, 2026-07-05. -->
-            <section class="intro-section" aria-labelledby="character-counter-intro">
-                <h2 id="character-counter-intro" class="section-heading">What is this character counter for?</h2>
-                <p class="answer-intro">Character Counter Pro counts characters, words, lines, sentences, paragraphs, reading time, and platform limits in real time. It is built for writers, marketers, SEO teams, developers, students, support teams, and product managers who need instant text-length feedback without sending draft text to a server.</p>
-                <p class="answer-intro">The tool is useful when a piece of writing must fit a hard limit, such as a social media post, app-store field, form validation message, email subject line, title tag, or meta description. It also helps with soft limits where length affects readability: onboarding copy, help-centre answers, product descriptions, abstracts, short bios, and push notifications.</p>
-                <p class="updated-date">Last updated: August 11, 2026</p>
-            </section>
-
-            <!-- Text Input Section -->
-            <section class="input-section" aria-labelledby="textarea-label">
-                <label for="textInput" id="textarea-label" class="label">Paste or type your text here:</label>
-                <textarea 
-                    id="textInput" 
-                    class="textarea" 
-                    placeholder="Enter your text here to see real-time counts..." 
-                    spellcheck="true"
-                    aria-describedby="real-time-desc">
-                </textarea>
-                <p id="real-time-desc" class="sr-only">Character counts update in real-time as you type.</p>
-                
-                <!-- Button Group -->
-                <div class="button-group">
-                    <button id="copyStatsBtn" class="btn btn-secondary" title="Copy all statistics to clipboard">
-                        <span class="btn-icon">📋</span> Copy Stats
-                    </button>
-                    <button id="clearBtn" class="btn btn-danger" title="Clear the text area">
-                        <span class="btn-icon">🗑️</span> Clear
-                    </button>
-                    <button id="detailsToggle" class="btn btn-primary" title="Show or hide detailed statistics">
-                        <span class="btn-icon">📊</span> <span id="detailsToggleText">Show Details</span>
-                    </button>
-                </div>
-            </section>
-
-            <section class="content-section" aria-labelledby="how-it-works-heading">
-                <h2 id="how-it-works-heading" class="section-heading">How the character counter works</h2>
-                <p>The counter runs in your browser. When you type or paste text into the box, the page reads the current value of the text area and calculates the visible statistics immediately. Characters with spaces use the full string length. Characters without spaces remove whitespace before counting. Words are counted from word-like sequences, lines come from line breaks, sentences are estimated from sentence-ending punctuation, and paragraphs are counted from blocks of text separated by blank lines.</p>
-                <p>Because the calculation happens locally, the counter is fast enough for long drafts and private enough for everyday editing. You can paste a newsletter paragraph, a draft tweet, a product summary, or a long article excerpt and see the numbers change while you revise. The browser may store interface preferences, such as theme and whether the detailed panel is open, but the typed text itself is not saved by this site.</p>
-                <p>The platform limit bars are simple writing aids rather than official publishing checks. They show commonly used limits and recommended ranges for channels where length matters. A post can still be unsuitable because of links, media, language, or platform-specific rules, so use the counter as an editing checkpoint before you paste the final text into the destination app.</p>
-            </section>
-
-            <section class="content-section" aria-labelledby="guide-heading">
-                <h2 id="guide-heading" class="section-heading">Step-by-step guide with examples</h2>
-                <ol>
-                    <li>Paste your draft into the text box. Example input: "Launch offer ends Friday. Save 20% on annual plans before midnight." The counter reports 67 characters with spaces, 58 without spaces, 11 words, and one sentence.</li>
-                    <li>Check the primary limit for your channel. If that same sentence is an email subject line, it is longer than the 50-character guide, so tighten it to: "Save 20% on annual plans by Friday." That version is 36 characters and keeps the main benefit.</li>
-                    <li>Use the word count and reading time for longer copy. Example input: a 750-word landing page section reads as about three minutes at 250 words per minute. If the section is meant to be a quick product overview, that may be too long; if it is a support article, the length may be acceptable.</li>
-                    <li>Open the detailed statistics panel when the exact composition matters. For example, a form rule might require at least one number and one special character. The detailed panel separates numbers, spaces, and punctuation so you can verify the copy quickly.</li>
-                    <li>Copy the final statistics when you need to document an edit. The "Copy Stats" button creates a short report that can be pasted into an editorial checklist, SEO ticket, QA note, or content handoff.</li>
-                </ol>
-                <table class="example-table">
-                    <thead>
-                        <tr>
-                            <th>Writing task</th>
-                            <th>Draft example</th>
-                            <th>What to check</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Email subject</td>
-                            <td>New reporting dashboard is ready for your weekly review</td>
-                            <td>At 58 characters, it may truncate on some mobile inboxes. Shorten the phrase before sending.</td>
-                        </tr>
-                        <tr>
-                            <td>SEO title</td>
-                            <td>Character Counter - Free Word, Letter and Reading Time Tool</td>
-                            <td>At about 60 characters, it sits near the usual display boundary for title tags.</td>
-                        </tr>
-                        <tr>
-                            <td>Support reply</td>
-                            <td>Your export is queued and should appear in the Downloads tab shortly.</td>
-                            <td>The reply is short, one sentence, and easy to scan in a chat or help desk thread.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <!-- Quick Stats Section -->
-            <section class="stats-section" aria-labelledby="stats-heading">
-                <h2 id="stats-heading" class="section-heading">What statistics does Character Counter provide?</h2>
-                <p class="answer-intro">Our tool instantly shows you 6 key metrics: character count (with and without spaces), word count, lines, sentences, and paragraphs. Below you'll see real-time updates as you type.</p>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-value" id="charCount">0</div>
-                        <div class="stat-label">Characters</div>
-                        <div class="stat-sublabel">(with spaces)</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="charNoSpaceCount">0</div>
-                        <div class="stat-label">Characters</div>
-                        <div class="stat-sublabel">(without spaces)</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="wordCount">0</div>
-                        <div class="stat-label">Words</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="lineCount">0</div>
-                        <div class="stat-label">Lines</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="sentenceCount">0</div>
-                        <div class="stat-label">Sentences</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="paragraphCount">0</div>
-                        <div class="stat-label">Paragraphs</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Reading Time Section -->
-            <section class="reading-time-section" aria-labelledby="reading-heading">
-                <h2 id="reading-heading" class="section-heading">How long will it take to read this text?</h2>
-                <p class="answer-intro">We estimate reading time based on word count and your selected reading speed (200–300 words per minute). Adjust the WPM slider to match your pace and audience reading habits.</p>
-                <div class="reading-time-container">
-                    <div class="reading-time-controls">
-                        <label for="wpmSelect" class="label-inline">Words per minute:</label>
-                        <select id="wpmSelect" class="wpm-select" aria-label="Select reading speed in words per minute">
-                            <option value="200">200 WPM (Slow)</option>
-                            <option value="250" selected>250 WPM (Average)</option>
-                            <option value="300">300 WPM (Fast)</option>
-                        </select>
-                    </div>
-                    <div class="reading-time-display">
-                        <div class="reading-time-value" id="readingTime">0 min</div>
-                        <div class="reading-time-label">Estimated reading time</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Platform Limits Section -->
-            <section class="platform-section" aria-labelledby="platforms-heading">
-                <h2 id="platforms-heading" class="section-heading">What are character limits for social media and email?</h2>
-                <p class="answer-intro">Each platform enforces different character limits optimised for its format. Twitter has 280 characters, LinkedIn allows 3,000, email subject lines should stay under 50 characters, and SEO titles work best at 60 characters or fewer. See real-time progress for each below.</p>
-                <div class="platform-grid">
-                    <div class="platform-card">
-                        <div class="platform-name">Twitter</div>
-                        <div class="platform-limit">280</div>
-                        <div class="platform-progress">
-                            <div class="progress-bar" id="twitterProgress">
-                                <div class="progress-fill" id="twitterFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="280"></div>
-                            </div>
-                            <div class="progress-text" id="twitterText">0 / 280</div>
-                        </div>
-                    </div>
-                    
-                    <div class="platform-card">
-                        <div class="platform-name">LinkedIn</div>
-                        <div class="platform-limit">3,000</div>
-                        <div class="platform-progress">
-                            <div class="progress-bar" id="linkedinProgress">
-                                <div class="progress-fill" id="linkedinFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="3000"></div>
-                            </div>
-                            <div class="progress-text" id="linkedinText">0 / 3,000</div>
-                        </div>
-                    </div>
-                    
-                    <div class="platform-card">
-                        <div class="platform-name">Email Subject</div>
-                        <div class="platform-limit">50</div>
-                        <div class="platform-progress">
-                            <div class="progress-bar" id="emailProgress">
-                                <div class="progress-fill" id="emailFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
-                            </div>
-                            <div class="progress-text" id="emailText">0 / 50</div>
-                        </div>
-                    </div>
-                    
-                    <div class="platform-card">
-                        <div class="platform-name">Page Title</div>
-                        <div class="platform-limit">60</div>
-                        <div class="platform-progress">
-                            <div class="progress-bar" id="titleProgress">
-                                <div class="progress-fill" id="titleFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="60"></div>
-                            </div>
-                            <div class="progress-text" id="titleText">0 / 60</div>
-                        </div>
-                    </div>
-                    
-                    <div class="platform-card">
-                        <div class="platform-name">Meta Description</div>
-                        <div class="platform-limit">160</div>
-                        <div class="platform-progress">
-                            <div class="progress-bar" id="metaProgress">
-                                <div class="progress-fill" id="metaFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="160"></div>
-                            </div>
-                            <div class="progress-text" id="metaText">0 / 160</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Why Use This Tool Section -->
-            <section class="use-cases-section" aria-labelledby="uses-heading">
-                <h2 id="uses-heading" class="section-heading">Why use a character counter tool?</h2>
-                <p class="answer-intro">Length is one of the easiest quality checks to miss because it is rarely visible while writing. A counter gives you immediate feedback before a platform rejects a post, an email client cuts off a subject line, or a search result snippet loses the most important phrase. It also makes revisions more deliberate: you can remove clutter, compare versions, and keep the strongest wording.</p>
-                <div class="use-cases-grid">
-                    <div class="use-case">
-                        <h3>📱 Social Media Optimisation</h3>
-                        <p>Craft tweets that fit Twitter's 280-character limit and LinkedIn posts that maximise engagement within 3,000 characters.</p>
-                    </div>
-                    <div class="use-case">
-                        <h3>📧 Email Marketing</h3>
-                        <p>Keep email subject lines under 50 characters to prevent mobile truncation and improve open rates.</p>
-                    </div>
-                    <div class="use-case">
-                        <h3>🔍 SEO Optimisation</h3>
-                        <p>Write meta descriptions in the 150–160 character sweet spot and titles under 60 characters for optimal search engine display.</p>
-                    </div>
-                    <div class="use-case">
-                        <h3>📝 Content Writing</h3>
-                        <p>Monitor word count and reading time while drafting articles, blog posts, and product descriptions.</p>
-                    </div>
-                    <div class="use-case">
-                        <h3>🔐 Form Validation</h3>
-                        <p>Check that text inputs meet character requirements (minimum/maximum length, special character rules).</p>
-                    </div>
-                    <div class="use-case">
-                        <h3>⏱️ Estimate Reading Time</h3>
-                        <p>Calculate how long readers will spend on your content — essential for UX and content strategy planning.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="content-section" aria-labelledby="related-heading">
-                <h2 id="related-heading" class="section-heading">Character count guides</h2>
-                <p>For deeper editing guidance, read the related articles. They cover channel-specific limits, concise writing habits, and how character counts affect search snippets.</p>
-                <ul class="related-links">
-                    <li><a href="blog/character-limits-social-media.html">Character limits across social media</a></li>
-                    <li><a href="blog/concise-writing-character-limits.html">Concise writing for character limits</a></li>
-                    <li><a href="blog/seo-meta-optimization.html">SEO meta descriptions and title tags</a></li>
-                </ul>
-            </section>
-
-            <!-- FAQ Section -->
-            <section class="faq-section" aria-labelledby="faq-heading">
-                <h2 id="faq-heading" class="section-heading">Frequently Asked Questions</h2>
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <h3 class="faq-question">How do I count characters in text?</h3>
-                        <p class="faq-answer">Simply paste or type your text into the input box at the top. Character counts update in real-time, showing both characters with and without spaces. Our tool instantly counts all characters, including letters, numbers, spaces, and symbols.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">What's the difference between characters and words?</h3>
-                        <p class="faq-answer">Characters include every letter, number, space, and symbol. Words are counted as sequences separated by spaces. For example, 'Hello world' is 11 characters (including the space) but only 2 words.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">What are platform character limits used for?</h3>
-                        <p class="faq-answer">Different platforms enforce different character limits optimised for their format and user experience. Twitter allows 280 per post, LinkedIn allows 3,000 for deeper storytelling, email subject lines are optimal at 50 characters, and SEO page titles should stay under 60 characters for full display in search results.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">How is reading time calculated?</h3>
-                        <p class="faq-answer">Reading time is estimated by dividing your text's total word count by the selected words-per-minute (WPM) rate. The default is 250 WPM (average reader), but you can adjust to 200 WPM (slow readers) or 300 WPM (fast readers) depending on text complexity and audience.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Is Character Counter Pro free to use?</h3>
-                        <p class="faq-answer">Yes, the character counter is free to use. No account sign-up, credit card, or paid plan is required, and the core counting workflow remains available directly in the browser.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">What's the best character count to aim for on Twitter?</h3>
-                        <p class="faq-answer">Twitter's limit is 280 characters. For maximum engagement and easy retweets, aim for 100–260 characters — long enough to convey your message completely, but short enough to allow space for replies and comments from followers.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">How do I optimise my LinkedIn post length?</h3>
-                        <p class="faq-answer">LinkedIn posts can be up to 3,000 characters. For optimal engagement, aim for 1,500–2,500 characters — long enough to tell a compelling story with personality and details, but short enough to keep readers engaged without requiring them to click 'see more'.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Why do email subject lines have a 50-character limit?</h3>
-                        <p class="faq-answer">Email clients display approximately 40–50 characters on mobile devices and 60 on desktop. Subject lines longer than 50 characters are truncated on mobile, which reduces visibility and can lower click-through rates. Keep them at 30–50 characters for optimal display across devices.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">What's the ideal length for an SEO meta description?</h3>
-                        <p class="faq-answer">Google displays 150–160 characters on desktop and 120 characters on mobile. Write meta descriptions between 150–160 characters to ensure they display fully in search results, and include your primary keyword naturally within that space.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Can I count special characters separately?</h3>
-                        <p class="faq-answer">Yes. Click 'Show Details' under your text to see a complete breakdown including uppercase letters, lowercase letters, numbers, spaces, and special characters counted separately. This is useful for password requirements and form validation rules.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">What counts as a 'word' in your counter?</h3>
-                        <p class="faq-answer">A word is any sequence of characters separated by spaces or line breaks. Numbers and hyphenated words (e.g., 'well-structured') each count as single words. Standalone punctuation marks do not count as words.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Can I use this tool on my phone?</h3>
-                        <p class="faq-answer">Yes, Character Counter Pro is fully responsive and works on all devices including smartphones and tablets. Simply visit the site on your mobile browser and start typing — all features work exactly the same on desktop, tablet, and mobile.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Does the counter save my text?</h3>
-                        <p class="faq-answer">No. The text you enter is processed in the browser for the current session and is not uploaded to a Character Counter server. If you refresh or close the page, the typed text is not preserved by this site.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Why do counts differ between tools?</h3>
-                        <p class="faq-answer">Different tools define words, punctuation, emoji, and line breaks differently. This counter is intended for practical editing decisions. For a strict platform or database field, always test the final copy in that system as well.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Detailed Stats Section (Initially Hidden) -->
-            <section class="details-section hidden" id="detailsSection" aria-labelledby="details-heading">
-                <h2 id="details-heading" class="section-heading">What detailed character breakdowns are available?</h2>
-                <p class="answer-intro">Toggle 'Show Details' to see an itemised breakdown: uppercase/lowercase letters, numbers, spaces, special characters, average word length, and longest/shortest words. Useful for password validation and understanding your writing patterns.</p>
-                <div class="details-grid">
-                    <div class="detail-item">
-                        <span class="detail-label">Uppercase Letters:</span>
-                        <span class="detail-value" id="uppercaseCount">0</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Lowercase Letters:</span>
-                        <span class="detail-value" id="lowercaseCount">0</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Numbers:</span>
-                        <span class="detail-value" id="numberCount">0</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Spaces:</span>
-                        <span class="detail-value" id="spaceCount">0</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Special Characters:</span>
-                        <span class="detail-value" id="specialCharCount">0</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Average Word Length:</span>
-                        <span class="detail-value" id="avgWordLength">0</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Longest Word:</span>
-                        <span class="detail-value" id="longestWord">—</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Shortest Word:</span>
-                        <span class="detail-value" id="shortestWord">—</span>
-                    </div>
-                </div>
-            </section>
-
-
-
-        </main>
-
-        <!-- Author Section -->
-        <section class="author-section">
-            <h3>About This Site</h3>
-            <div class="author-card">
-                <div class="author-info">
-                    <h4>Chameleon Partnership</h4>
-                    <p class="author-title">Maintainer of Character Counter Pro</p>
-                    <p class="author-bio">
-                        Character Counter Pro is maintained by Chameleon Partnership as a practical browser-based writing utility.
-                        The site focuses on quick text measurement, clear editorial guidance, accessible controls, and transparent privacy information for people who need to prepare copy for constrained formats.
-                    </p>
-                    <p class="updated-date">Last updated: August 11, 2026</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <p>&copy; 2026 Character Counter Pro. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                    <a href="terms.html" class="footer-link">Terms of Service</a>
-                    <a href="about.html" class="footer-link">About</a>
-                </div>
-            </div>
-        </footer>
+<nav class="site-nav" aria-label="Primary navigation">
+  <a href="index.html">Tool</a>
+  <a href="character-limits-cheat-sheet.html">Cheat sheet</a>
+  <a href="blog/">Blog</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+    <main id="main-content" class="main-content">
+      <section class="intro-section" aria-labelledby="character-counter-intro">
+        <h2 id="character-counter-intro" class="section-heading">Count copy before it reaches the CMS, inbox or social scheduler</h2>
+        <p class="answer-intro">Character Counter Pro is a browser-based character counter for people who publish under constraints: editors checking titles, CRM teams trimming subject lines, product writers testing form copy, social managers preparing posts, and SEO teams reviewing snippets. Paste a draft, see the count immediately, then edit against real platform limits without creating an account.</p>
+        <p class="answer-intro">The privacy point is practical, not decorative. Draft campaign lines, unreleased feature names, customer support examples and internal announcement copy often should not be uploaded to a remote counting service. This tool reads the text inside your browser and updates the numbers on the page. The typed text is not sent to a Character Counter Pro server.</p>
+        <p class="updated-date">Last updated: 2026-09-01</p>
+      </section>
+      <section class="input-section" aria-labelledby="textarea-label">
+        <label for="textInput" id="textarea-label" class="label">Paste or type your text here:</label>
+        <textarea id="textInput" class="textarea" placeholder="Enter your text here to see real-time counts..." spellcheck="true" aria-describedby="real-time-desc"></textarea>
+        <p id="real-time-desc" class="sr-only">Character counts update in real time as you type.</p>
+        <div class="button-group">
+          <button id="copyStatsBtn" class="btn btn-secondary" title="Copy all statistics to clipboard"><span class="btn-icon">📋</span> Copy stats</button>
+          <button id="clearBtn" class="btn btn-danger" title="Clear the text area"><span class="btn-icon">🗑️</span> Clear</button>
+          <button id="detailsToggle" class="btn btn-primary" title="Show or hide detailed statistics"><span class="btn-icon">📊</span> <span id="detailsToggleText">Show details</span></button>
+        </div>
+      </section>
+      <section class="content-section"><h2 class="section-heading">How the counter works</h2>
+        <p>The page listens to the text area and recalculates the visible statistics after every edit. Characters with spaces use the full string length. Characters without spaces remove whitespace first. Words are counted from word-like sequences. Lines come from line breaks, sentences from sentence-ending punctuation, and paragraphs from blocks separated by blank lines.</p>
+        <p>That sounds simple because it should be simple. The value is in speed and repeatability. A copywriter can paste five subject lines and choose the 42-character version. A product manager can test whether a validation message fits a narrow modal. An SEO lead can check whether a title tag still sits near 60 characters after a brand suffix has been added.</p>
+        <p>The platform bars are editing guides. They cover X at 280 characters, LinkedIn at 3,000, email subject lines around 50, page titles around 60 and meta descriptions around 160. For a fuller list, keep the <a href="character-limits-cheat-sheet.html">character limits cheat sheet</a> open next to your draft.</p>
+      </section>
+      <section class="content-section"><h2 class="section-heading">Step-by-step editing workflow</h2>
+        <ol>
+          <li>Paste the rough draft before shortening it. A full first draft protects the idea.</li>
+          <li>Check the total count against the channel. Example: "Launch offer ends Friday. Save 20% on annual plans before midnight." is 67 characters with spaces.</li>
+          <li>Rewrite for the tightest surface. As an email subject, "Save 20% on annual plans by Friday" is 36 characters and keeps the offer, product and deadline.</li>
+          <li>Use reading time for longer copy. A 900-word help article is about four to five minutes at 200 words per minute, which may be fine for setup guidance but heavy for an error message.</li>
+          <li>Open detailed stats when punctuation, numbers or special characters matter, such as password rules, form validation or data-entry examples.</li>
+        </ol>
+        <table class="example-table"><thead><tr><th>Task</th><th>Draft</th><th>Better check</th></tr></thead><tbody>
+          <tr><td>Email subject</td><td>New reporting dashboard is ready for your weekly review</td><td>58 characters. Shorten for mobile inboxes.</td></tr>
+          <tr><td>SEO title</td><td>Character Counter - Free Word, Letter and Reading Time Tool</td><td>Near 60 characters. Test with brand suffixes.</td></tr>
+          <tr><td>Support reply</td><td>Your export is queued and should appear in Downloads shortly.</td><td>One sentence. Clear action and location.</td></tr>
+        </tbody></table>
+      </section>
+      <section class="stats-section" aria-labelledby="stats-heading"><h2 id="stats-heading" class="section-heading">Live statistics</h2><p class="answer-intro">The six headline numbers cover most editorial checks: characters, characters without spaces, words, lines, sentences and paragraphs.</p><div class="stats-grid">
+        <div class="stat-card"><div class="stat-value" id="charCount">0</div><div class="stat-label">Characters</div><div class="stat-sublabel">(with spaces)</div></div>
+        <div class="stat-card"><div class="stat-value" id="charNoSpaceCount">0</div><div class="stat-label">Characters</div><div class="stat-sublabel">(without spaces)</div></div>
+        <div class="stat-card"><div class="stat-value" id="wordCount">0</div><div class="stat-label">Words</div></div>
+        <div class="stat-card"><div class="stat-value" id="lineCount">0</div><div class="stat-label">Lines</div></div>
+        <div class="stat-card"><div class="stat-value" id="sentenceCount">0</div><div class="stat-label">Sentences</div></div>
+        <div class="stat-card"><div class="stat-value" id="paragraphCount">0</div><div class="stat-label">Paragraphs</div></div>
+      </div></section>
+      <section class="reading-time-section" aria-labelledby="reading-heading"><h2 id="reading-heading" class="section-heading">Reading time</h2><p class="answer-intro">Set the reading speed to match the task. Use 200 words per minute for dense policy, technical or legal copy. Use 250 for general web copy. Use 300 only for light material that readers already understand.</p><div class="reading-time-container"><div class="reading-time-controls"><label for="wpmSelect" class="label-inline">Words per minute:</label><select id="wpmSelect" class="wpm-select" aria-label="Select reading speed in words per minute"><option value="200">200 WPM (slow)</option><option value="250" selected>250 WPM (average)</option><option value="300">300 WPM (fast)</option></select></div><div class="reading-time-display"><div class="reading-time-value" id="readingTime">0 min</div><div class="reading-time-label">Estimated reading time</div></div></div></section>
+      <section class="platform-section" aria-labelledby="platforms-heading"><h2 id="platforms-heading" class="section-heading">Platform limit bars</h2><p class="answer-intro">Use these bars for common publishing checks. They are not a replacement for the final composer in each platform, but they catch most length problems before review.</p><div class="platform-grid">
+        <div class="platform-card"><div class="platform-name">X / Twitter</div><div class="platform-limit">280</div><div class="platform-progress"><div class="progress-bar" id="twitterProgress"><div class="progress-fill" id="twitterFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="280"></div></div><div class="progress-text" id="twitterText">0 / 280</div></div></div>
+        <div class="platform-card"><div class="platform-name">LinkedIn</div><div class="platform-limit">3,000</div><div class="platform-progress"><div class="progress-bar" id="linkedinProgress"><div class="progress-fill" id="linkedinFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="3000"></div></div><div class="progress-text" id="linkedinText">0 / 3,000</div></div></div>
+        <div class="platform-card"><div class="platform-name">Email subject</div><div class="platform-limit">50</div><div class="platform-progress"><div class="progress-bar" id="emailProgress"><div class="progress-fill" id="emailFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div></div><div class="progress-text" id="emailText">0 / 50</div></div></div>
+        <div class="platform-card"><div class="platform-name">Page title</div><div class="platform-limit">60</div><div class="platform-progress"><div class="progress-bar" id="titleProgress"><div class="progress-fill" id="titleFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="60"></div></div><div class="progress-text" id="titleText">0 / 60</div></div></div>
+        <div class="platform-card"><div class="platform-name">Meta description</div><div class="platform-limit">160</div><div class="platform-progress"><div class="progress-bar" id="metaProgress"><div class="progress-fill" id="metaFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="160"></div></div><div class="progress-text" id="metaText">0 / 160</div></div></div>
+      </div></section>
+      <section class="use-cases-section"><h2 class="section-heading">Why professional teams count characters</h2><p class="answer-intro">Length problems create late rework. A subject line gets clipped after legal approval. A product label wraps in a translated layout. A social post loses its strongest phrase behind a preview. A meta description uses the right keyword but hides the value. Counting turns those risks into visible numbers.</p><div class="use-cases-grid">
+        <div class="use-case"><h3>Social posts</h3><p>Check the opener, not only the full post. The first visible line usually decides whether anyone expands the copy.</p></div>
+        <div class="use-case"><h3>Email campaigns</h3><p>Keep the offer and deadline inside 30 to 50 characters where mobile inboxes still show them.</p></div>
+        <div class="use-case"><h3>SEO snippets</h3><p>Write titles near 60 characters and descriptions near 155, with the clearest promise early.</p></div>
+        <div class="use-case"><h3>UX writing</h3><p>Test labels, buttons and errors before they wrap inside modals, cards and narrow mobile layouts.</p></div>
+        <div class="use-case"><h3>Editorial QA</h3><p>Copy the final statistics into briefs, tickets and approval notes so reviewers see the constraint.</p></div>
+        <div class="use-case"><h3>Private drafts</h3><p>Count sensitive text locally when the draft includes unreleased campaigns, customer examples or internal notes.</p></div>
+      </div></section>
+      <section class="content-section"><h2 class="section-heading">Common mistakes this catches</h2><p>A headline that is 74 characters may look fine in a spreadsheet and awkward in a search result. A 171-character SMS may look like a small overrun and still become two billable segments. A 24-word error message may be grammatically correct and still fail because the user needs one instruction, not a paragraph.</p><p>The counter is useful because it gives editors a shared measurement before opinions take over. Instead of saying "this feels too long", say "the mobile subject target is 50 characters and this version is 63". That changes the conversation from taste to trade-off.</p></section>
+      <section class="content-section"><h2 class="section-heading">How teams use it during approval</h2><p>A good approval note includes the copy, the destination and the count. For example: "Meta description, 154 characters, target 150 to 160" or "SMS body, 148 characters before opt-out text". This small habit gives reviewers the context they need and reduces late rewrites after legal, brand or product sign-off.</p><p>For campaigns, count the longest realistic version. If a message includes a first name, city, discount code or product name, test the longest field value before approval. "Hi Sam" and "Hi Christopher" behave differently in SMS. A short test link may also become a longer tracked link at send time, so reserve space before the final send.</p><p>For product copy, count in the smallest layout. Button labels, validation messages and empty-state headings often fail on mobile before they fail on desktop. A 54-character error may be readable in a Figma note and cramped inside a narrow modal. Count the string, then test it where users actually see it.</p></section>
+      <section class="content-section"><h2 class="section-heading">Why browser-only counting matters</h2><p>Many drafts are harmless on their own but sensitive in context. A subject line can reveal a pricing change. A support reply can include a customer scenario. A product tooltip can name a feature that has not launched. A social post can expose a campaign before the embargo lifts. Sending that text to a remote tool just to count words is unnecessary.</p><p>Character Counter Pro keeps the counting task local. Google AdSense may serve ads on the page, and the privacy policy explains those cookies, but the text you type into the counter is not uploaded for analysis by this site. That is the right default for everyday professional copy work: quick enough for repeated edits, private enough for drafts, and simple enough that nobody needs training.</p></section>
+      <section class="content-section"><h2 class="section-heading">Guides and references</h2><p>Use these guides when a count raises a harder editorial question.</p><ul class="related-links"><li><a href="blog/character-limits-social-media.html">Character Limits Across Social Media</a></li><li><a href="blog/concise-writing-character-limits.html">How to Shorten Any Sentence Without Losing Meaning</a></li><li><a href="blog/seo-meta-optimization.html">How to Write Meta Descriptions That Earn Clicks</a></li><li><a href="blog/complete-guide-character-limits.html">The Complete Guide to Character Limits on Major Platforms</a></li><li><a href="blog/ux-character-counting-form-fields.html">Character Counting in UX: Form Fields, Validation Messages and Error Copy</a></li><li><a href="blog/sms-marketing-character-limits.html">SMS Marketing: How Character Limits Affect Deliverability and Cost</a></li><li><a href="blog/app-store-description-limits.html">App Store Description Limits: Apple and Google Compared</a></li><li><a href="character-limits-cheat-sheet.html">Character limits cheat sheet</a></li></ul></section>
+      <section class="faq-section"><h2 class="section-heading">Frequently asked questions</h2><div class="faq-container">
+        <div class="faq-item"><h3 class="faq-question">Does Character Counter Pro save my text?</h3><p class="faq-answer">No. The counter processes typed or pasted text in the browser for the current session. The site does not upload that text to a Character Counter Pro server.</p></div>
+        <div class="faq-item"><h3 class="faq-question">Why do counts differ between tools?</h3><p class="faq-answer">Tools define words, line breaks, emoji and punctuation differently. Use this counter for editorial checks, then test the final copy in the publishing system when a hard limit matters.</p></div>
+        <div class="faq-item"><h3 class="faq-question">What reading speed should I use?</h3><p class="faq-answer">Use 200 words per minute for dense copy, 250 for general web copy and 300 for light copy. Blog read-time labels on this site use about 200 words per minute.</p></div>
+        <div class="faq-item"><h3 class="faq-question">Is this only for marketers?</h3><p class="faq-answer">No. Product teams, developers, support teams, students and editors use character counts for forms, alerts, metadata, captions, abstracts and ticket notes.</p></div>
+      </div></section>
+      <section class="details-section hidden" id="detailsSection" aria-labelledby="details-heading"><h2 id="details-heading" class="section-heading">Detailed breakdown</h2><p class="answer-intro">Toggle details for letter case, numbers, spaces, special characters, average word length and longest or shortest words.</p><div class="details-grid">
+        <div class="detail-item"><span class="detail-label">Uppercase letters:</span><span class="detail-value" id="uppercaseCount">0</span></div>
+        <div class="detail-item"><span class="detail-label">Lowercase letters:</span><span class="detail-value" id="lowercaseCount">0</span></div>
+        <div class="detail-item"><span class="detail-label">Numbers:</span><span class="detail-value" id="numberCount">0</span></div>
+        <div class="detail-item"><span class="detail-label">Spaces:</span><span class="detail-value" id="spaceCount">0</span></div>
+        <div class="detail-item"><span class="detail-label">Special characters:</span><span class="detail-value" id="specialCharCount">0</span></div>
+        <div class="detail-item"><span class="detail-label">Average word length:</span><span class="detail-value" id="avgWordLength">0</span></div>
+        <div class="detail-item"><span class="detail-label">Longest word:</span><span class="detail-value" id="longestWord"></span></div>
+        <div class="detail-item"><span class="detail-label">Shortest word:</span><span class="detail-value" id="shortestWord"></span></div>
+      </div></section>
+    </main>
+    <section class="author-section"><h3>About this site</h3><div class="author-card"><div class="author-info"><h4>Chameleon Partnership</h4><p class="author-title">Maintainer of Character Counter Pro</p><p class="author-bio">Chameleon Partnership maintains Character Counter Pro as a practical writing utility for copy teams that need quick numbers, clear references and a privacy-first workflow. Contact: paulodonnell@chameleonpartnership.com.</p><p class="updated-date">Last updated: 2026-09-01</p></div></div></section>
+    
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Character Counter Pro. Maintained by Chameleon Partnership.</p>
+    <div class="footer-links">
+      <a href="index.html" class="footer-link">Tool</a>
+      <a href="character-limits-cheat-sheet.html" class="footer-link">Cheat sheet</a>
+      <a href="blog/" class="footer-link">Blog</a>
+      <a href="privacy.html" class="footer-link">Privacy Policy</a>
+      <a href="terms.html" class="footer-link">Terms of Service</a>
+      <a href="about.html" class="footer-link">About</a>
+      <a href="contact.html" class="footer-link">Contact</a>
     </div>
+  </div>
+</footer>
+  </div>
+  <div class="cookie-consent" role="region" aria-label="Cookie notice" hidden>
+    <p>We use essential browser storage for preferences. Google AdSense may use cookies to show ads and measure performance. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="btn btn-secondary" data-cookie-choice="dismissed">Dismiss</button>
+      <button type="button" class="btn btn-primary" data-cookie-choice="accepted">Accept</button>
+    </div>
+  </div>
 
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/consent.js"></script>
+  <script src="assets/js/consent.js"></script>
 </body>
 </html>

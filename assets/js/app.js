@@ -165,11 +165,11 @@ class CharacterCounter {
         
         const longestWord = wordList.length > 0
             ? wordList.reduce((max, word) => word.length > max.length ? word : max, '')
-            : '—';
+            : '';
         
         const shortestWord = wordList.length > 0
             ? wordList.reduce((min, word) => word.length < min.length ? word : min, wordList[0])
-            : '—';
+            : '';
 
         return {
             charCount,
