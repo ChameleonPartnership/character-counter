@@ -1,564 +1,279 @@
-/**
- * Character Counter Pro - Main Application
- * Production-ready vanilla JavaScript
- * Real-time counting, stats calculation, and accessibility support
- */
+(function () {
+    const $ = (id) => document.getElementById(id);
 
-class CharacterCounter {
-    constructor() {
-        this.initElements();
-        this.initEventListeners();
-        this.initTheme();
-        this.updateStats();
-    }
-
-    /**
-     * Initialize DOM elements for caching
-     */
-    initElements() {
-        // Input
-        this.textInput = document.getElementById('textInput');
-
-        // Quick Stats
-        this.charCount = document.getElementById('charCount');
-        this.charNoSpaceCount = document.getElementById('charNoSpaceCount');
-        this.wordCount = document.getElementById('wordCount');
-        this.lineCount = document.getElementById('lineCount');
-        this.sentenceCount = document.getElementById('sentenceCount');
-        this.paragraphCount = document.getElementById('paragraphCount');
-
-        // Reading Time
-        this.readingTime = document.getElementById('readingTime');
-        this.wpmSelect = document.getElementById('wpmSelect');
-
-        // Platform Limits
-        this.twitterFill = document.getElementById('twitterFill');
-        this.twitterText = document.getElementById('twitterText');
-        this.linkedinFill = document.getElementById('linkedinFill');
-        this.linkedinText = document.getElementById('linkedinText');
-        this.emailFill = document.getElementById('emailFill');
-        this.emailText = document.getElementById('emailText');
-        this.titleFill = document.getElementById('titleFill');
-        this.titleText = document.getElementById('titleText');
-        this.metaFill = document.getElementById('metaFill');
-        this.metaText = document.getElementById('metaText');
-
-        // Detailed Stats
-        this.uppercaseCount = document.getElementById('uppercaseCount');
-        this.lowercaseCount = document.getElementById('lowercaseCount');
-        this.numberCount = document.getElementById('numberCount');
-        this.spaceCount = document.getElementById('spaceCount');
-        this.specialCharCount = document.getElementById('specialCharCount');
-        this.avgWordLength = document.getElementById('avgWordLength');
-        this.longestWord = document.getElementById('longestWord');
-        this.shortestWord = document.getElementById('shortestWord');
-
-        // Buttons
-        this.copyStatsBtn = document.getElementById('copyStatsBtn');
-        this.clearBtn = document.getElementById('clearBtn');
-        this.detailsToggle = document.getElementById('detailsToggle');
-        this.detailsToggleText = document.getElementById('detailsToggleText');
-        this.themeToggle = document.getElementById('themeToggle');
-
-        // Sections
-        this.detailsSection = document.getElementById('detailsSection');
-    }
-
-    /**
-     * Initialize event listeners
-     */
-    initEventListeners() {
-        // Real-time counting
-        this.textInput.addEventListener('input', () => this.updateStats());
-        this.textInput.addEventListener('change', () => this.updateStats());
-
-        // Reading time WPM selector
-        this.wpmSelect.addEventListener('change', () => this.updateReadingTime());
-
-        // Button listeners
-        this.copyStatsBtn.addEventListener('click', () => this.copyStats());
-        this.clearBtn.addEventListener('click', () => this.confirmClear());
-        this.detailsToggle.addEventListener('click', () => this.toggleDetails());
-        this.themeToggle.addEventListener('click', () => this.toggleTheme());
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => this.handleKeyboardShortcuts(e));
-    }
-
-    /**
-     * Initialize theme from localStorage or system preference
-     */
-    initTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-        this.setTheme(theme);
-
-        // Listen for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            const newTheme = e.matches ? 'dark' : 'light';
-            this.setTheme(newTheme);
-        });
-    }
-
-    /**
-     * Set theme and update DOM
-     */
-    setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        
-        // Update icon
-        this.themeToggle.querySelector('.theme-icon').textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
-
-    /**
-     * Toggle theme
-     */
-    toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        this.setTheme(newTheme);
-    }
-
-    /**
-     * Main stats calculation
-     */
-    updateStats() {
-        const text = this.textInput.value;
-
-        // Calculate basic stats
-        const stats = this.calculateStats(text);
-
-        // Update UI
-        this.updateQuickStats(stats);
-        this.updateDetailedStats(stats);
-        this.updateReadingTime();
-        this.updatePlatformLimits(stats);
-
-        // Store stats for copying
-        this.currentStats = stats;
-    }
-
-    /**
-     * Calculate all statistics
-     */
-    calculateStats(text) {
-        const charCount = text.length;
-        const charNoSpace = text.replace(/\s/g, '').length;
-        const words = this.countWords(text);
-        const lines = this.countLines(text);
-        const sentences = this.countSentences(text);
-        const paragraphs = this.countParagraphs(text);
-        const uppercase = this.countMatches(text, /[A-Z]/g);
-        const lowercase = this.countMatches(text, /[a-z]/g);
-        const numbers = this.countMatches(text, /\d/g);
-        const spaces = this.countMatches(text, /\s/g);
-        const specialChars = this.countSpecialCharacters(text);
-
-        // Word-based stats
-        const wordList = text.match(/\b\w+\b/g) || [];
-        const avgWordLength = wordList.length > 0
-            ? (charNoSpace / wordList.length).toFixed(1)
-            : 0;
-        
-        const longestWord = wordList.length > 0
-            ? wordList.reduce((max, word) => word.length > max.length ? word : max, '')
-            : '';
-        
-        const shortestWord = wordList.length > 0
-            ? wordList.reduce((min, word) => word.length < min.length ? word : min, wordList[0])
-            : '';
-
-        return {
-            charCount,
-            charNoSpace,
-            words,
-            lines,
-            sentences,
-            paragraphs,
-            uppercase,
-            lowercase,
-            numbers,
-            spaces,
-            specialChars,
-            avgWordLength,
-            longestWord,
-            shortestWord
-        };
-    }
-
-    /**
-     * Count words (more sophisticated than simple split)
-     */
-    countWords(text) {
-        // Match sequences of word characters (letters, digits, underscores)
-        const words = text.match(/\b\w+\b/g);
-        return words ? words.length : 0;
-    }
-
-    /**
-     * Count lines
-     */
-    countLines(text) {
-        if (text.length === 0) return 0;
-        return text.split('\n').length;
-    }
-
-    /**
-     * Count sentences (. ! ? followed by space or end)
-     */
-    countSentences(text) {
-        const sentences = text.match(/[.!?]+(?:\s|$)/g);
-        return sentences ? sentences.length : 0;
-    }
-
-    /**
-     * Count paragraphs (double newlines or end of text)
-     */
-    countParagraphs(text) {
-        if (text.length === 0) return 0;
-        const paragraphs = text.split(/\n\n+/).filter(p => p.trim().length > 0);
-        return paragraphs.length;
-    }
-
-    /**
-     * Count matches for a regex pattern
-     */
-    countMatches(text, pattern) {
-        const matches = text.match(pattern);
-        return matches ? matches.length : 0;
-    }
-
-    /**
-     * Count special characters (anything that's not alphanumeric or space)
-     */
-    countSpecialCharacters(text) {
-        const specialChars = text.match(/[^\w\s]/g);
-        return specialChars ? specialChars.length : 0;
-    }
-
-    /**
-     * Update quick stats in UI
-     */
-    updateQuickStats(stats) {
-        this.charCount.textContent = this.formatNumber(stats.charCount);
-        this.charNoSpaceCount.textContent = this.formatNumber(stats.charNoSpace);
-        this.wordCount.textContent = this.formatNumber(stats.words);
-        this.lineCount.textContent = this.formatNumber(stats.lines);
-        this.sentenceCount.textContent = this.formatNumber(stats.sentences);
-        this.paragraphCount.textContent = this.formatNumber(stats.paragraphs);
-
-        // Add visual feedback for updates
-        this.addUpdateAnimation(this.charCount);
-    }
-
-    /**
-     * Update detailed stats
-     */
-    updateDetailedStats(stats) {
-        this.uppercaseCount.textContent = this.formatNumber(stats.uppercase);
-        this.lowercaseCount.textContent = this.formatNumber(stats.lowercase);
-        this.numberCount.textContent = this.formatNumber(stats.numbers);
-        this.spaceCount.textContent = this.formatNumber(stats.spaces);
-        this.specialCharCount.textContent = this.formatNumber(stats.specialChars);
-        this.avgWordLength.textContent = stats.avgWordLength;
-        this.longestWord.textContent = stats.longestWord;
-        this.shortestWord.textContent = stats.shortestWord;
-    }
-
-    /**
-     * Update reading time based on WPM
-     */
-    updateReadingTime() {
-        const wpm = parseInt(this.wpmSelect.value);
-        const words = this.currentStats?.words || 0;
+    const formatNumber = (num) => String(num).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const wordsOf = (text) => text.match(/[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)?/g) || [];
+    const sentenceCount = (text) => (text.match(/[^.!?]+[.!?]+(?:\s|$)/g) || []).length || (text.trim() ? 1 : 0);
+    const paragraphCount = (text) => text.split(/\n\s*\n/).filter((p) => p.trim()).length;
+    const timeLabel = (words, wpm) => {
+        if (!words) return '0 min';
         const minutes = words / wpm;
+        if (minutes < 1) return '< 1 min';
+        const rounded = Math.round(minutes);
+        return `${rounded} min`;
+    };
 
-        let displayText;
-        if (minutes < 1) {
-            displayText = '< 1 min';
-        } else if (minutes === 1) {
-            displayText = '1 min';
-        } else {
-            displayText = `${Math.round(minutes)} min`;
-        }
-
-        this.readingTime.textContent = displayText;
+    function initTheme() {
+        const toggle = $('themeToggle');
+        if (!toggle) return;
+        const icon = toggle.querySelector('.theme-icon');
+        const apply = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (icon) icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        };
+        apply(localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+        toggle.addEventListener('click', () => apply(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
     }
 
-    /**
-     * Update platform character limits
-     */
-    updatePlatformLimits(stats) {
-        const charCount = stats.charCount;
+    function copyTextFrom(targetId) {
+        const target = $(targetId);
+        if (!target) return;
+        const text = target.value !== undefined ? target.value : target.textContent;
+        if (!text) return;
+        navigator.clipboard.writeText(text).catch(() => {
+            const area = document.createElement('textarea');
+            area.value = text;
+            document.body.appendChild(area);
+            area.select();
+            document.execCommand('copy');
+            area.remove();
+        });
+        const live = $('toolToast');
+        if (live) live.textContent = 'Copied to clipboard';
+    }
 
-        // Define limits
+    function initCopyButtons() {
+        document.querySelectorAll('.copy-output').forEach((button) => {
+            button.addEventListener('click', () => copyTextFrom(button.dataset.target));
+        });
+    }
+
+    function initHomeCounter() {
+        const input = $('textInput');
+        if (!input) return;
+        const ids = ['charCount', 'charNoSpaceCount', 'wordCount', 'sentenceCount', 'paragraphCount', 'readingTime', 'lineCount', 'uppercaseCount', 'lowercaseCount', 'numberCount', 'spaceCount', 'specialCharCount', 'avgWordLength', 'longestWord'];
+        const els = Object.fromEntries(ids.map((id) => [id, $(id)]));
         const limits = [
-            { fill: this.twitterFill, text: this.twitterText, max: 280, name: 'Twitter' },
-            { fill: this.linkedinFill, text: this.linkedinText, max: 3000, name: 'LinkedIn' },
-            { fill: this.emailFill, text: this.emailText, max: 50, name: 'Email Subject' },
-            { fill: this.titleFill, text: this.titleText, max: 60, name: 'Page Title' },
-            { fill: this.metaFill, text: this.metaText, max: 160, name: 'Meta Description' }
+            ['twitter', 280], ['instagram', 2200], ['linkedin', 3000], ['meta', 160],
+            ['title', 60], ['sms', 160], ['facebook', 63206], ['youtube', 100]
         ];
+        const update = () => {
+            const text = input.value;
+            const words = wordsOf(text);
+            const chars = text.length;
+            const noSpace = text.replace(/\s/g, '').length;
+            const stats = {
+                charCount: chars,
+                charNoSpaceCount: noSpace,
+                wordCount: words.length,
+                sentenceCount: text.trim() ? sentenceCount(text) : 0,
+                paragraphCount: text.trim() ? paragraphCount(text) : 0,
+                readingTime: timeLabel(words.length, 225),
+                lineCount: text ? text.split('\n').length : 0,
+                uppercaseCount: (text.match(/[A-Z]/g) || []).length,
+                lowercaseCount: (text.match(/[a-z]/g) || []).length,
+                numberCount: (text.match(/\d/g) || []).length,
+                spaceCount: (text.match(/\s/g) || []).length,
+                specialCharCount: (text.match(/[^\w\s]/g) || []).length,
+                avgWordLength: words.length ? (words.join('').length / words.length).toFixed(1) : '0',
+                longestWord: words.reduce((a, b) => b.length > a.length ? b : a, '')
+            };
+            Object.entries(stats).forEach(([id, value]) => {
+                if (els[id]) els[id].textContent = typeof value === 'number' ? formatNumber(value) : value;
+            });
+            limits.forEach(([name, max]) => {
+                const fill = $(`${name}Fill`);
+                const label = $(`${name}Text`);
+                const remaining = max - chars;
+                const percent = Math.min((chars / max) * 100, 100);
+                if (fill) {
+                    fill.style.width = `${percent}%`;
+                    fill.setAttribute('aria-valuenow', chars);
+                    fill.classList.toggle('warning', percent >= 80 && percent <= 100);
+                    fill.classList.toggle('danger', chars > max);
+                }
+                if (label) label.textContent = remaining >= 0 ? `${formatNumber(remaining)} remaining (${formatNumber(chars)} / ${formatNumber(max)})` : `${formatNumber(Math.abs(remaining))} over (${formatNumber(chars)} / ${formatNumber(max)})`;
+            });
+        };
+        input.addEventListener('input', update);
+        $('clearBtn')?.addEventListener('click', () => { input.value = ''; input.focus(); update(); });
+        $('copyStatsBtn')?.addEventListener('click', () => {
+            const text = `Characters: ${els.charCount.textContent}\nCharacters without spaces: ${els.charNoSpaceCount.textContent}\nWords: ${els.wordCount.textContent}\nSentences: ${els.sentenceCount.textContent}\nParagraphs: ${els.paragraphCount.textContent}\nReading time: ${els.readingTime.textContent}`;
+            navigator.clipboard.writeText(text);
+        });
+        $('detailsToggle')?.addEventListener('click', () => {
+            const details = $('detailsSection');
+            const label = $('detailsToggleText');
+            if (!details) return;
+            const hidden = details.classList.toggle('hidden');
+            if (label) label.textContent = hidden ? 'Show details' : 'Hide details';
+        });
+        update();
+    }
 
-        limits.forEach(limit => {
-            const percentage = (charCount / limit.max) * 100;
-            limit.fill.style.width = Math.min(percentage, 100) + '%';
-            limit.fill.setAttribute('aria-valuenow', charCount);
-            limit.fill.setAttribute('aria-valuemax', limit.max);
-
-            // Update progress color
-            limit.fill.classList.remove('warning', 'danger');
-            if (percentage > 100) {
-                limit.fill.classList.add('danger');
-            } else if (percentage > 80) {
-                limit.fill.classList.add('warning');
+    function initWordCounter() {
+        const panel = document.querySelector('[data-tool="word-counter"]');
+        if (!panel) return;
+        const input = $('toolText');
+        const keyword = $('keywordInput');
+        const update = () => {
+            const text = input.value;
+            const words = wordsOf(text);
+            $('wcWords').textContent = formatNumber(words.length);
+            $('wcSentences').textContent = formatNumber(text.trim() ? sentenceCount(text) : 0);
+            $('wcParagraphs').textContent = formatNumber(text.trim() ? paragraphCount(text) : 0);
+            $('wcReading').textContent = timeLabel(words.length, 225);
+            $('wcSpeaking').textContent = timeLabel(words.length, 140);
+            const phrase = keyword.value.trim().toLowerCase();
+            let density = 0;
+            if (phrase && words.length) {
+                const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const matches = (text.toLowerCase().match(new RegExp(`\\b${escaped}\\b`, 'g')) || []).length;
+                density = (matches / words.length) * 100;
             }
-
-            // Update text
-            const remaining = limit.max - charCount;
-            const displayRemaining = Math.max(0, remaining);
-            limit.text.textContent = `${charCount} / ${limit.max}`;
-        });
+            $('keywordDensity').textContent = `Keyword density: ${density.toFixed(2)}%`;
+        };
+        input.addEventListener('input', update);
+        keyword.addEventListener('input', update);
+        update();
     }
 
-    /**
-     * Copy all stats to clipboard
-     */
-    copyStats() {
-        const stats = this.currentStats;
-        const text = this.textInput.value;
-
-        const statsText = `Character Counter Report
-========================================
-Text Preview: ${text.substring(0, 100)}${text.length > 100 ? '...' : ''}
-
-QUICK STATS:
-- Characters (with spaces): ${stats.charCount}
-- Characters (without spaces): ${stats.charNoSpace}
-- Words: ${stats.words}
-- Lines: ${stats.lines}
-- Sentences: ${stats.sentences}
-- Paragraphs: ${stats.paragraphs}
-
-READING TIME:
-- At 250 WPM: ${this.readingTime.textContent}
-
-DETAILED STATS:
-- Uppercase letters: ${stats.uppercase}
-- Lowercase letters: ${stats.lowercase}
-- Numbers: ${stats.numbers}
-- Spaces: ${stats.spaces}
-- Special characters: ${stats.specialChars}
-- Average word length: ${stats.avgWordLength}
-- Longest word: ${stats.longestWord}
-- Shortest word: ${stats.shortestWord}
-
-PLATFORM LIMITS:
-- Twitter (280): ${stats.charCount} / 280
-- LinkedIn (3000): ${stats.charCount} / 3000
-- Email Subject (50): ${stats.charCount} / 50
-- Page Title (60): ${stats.charCount} / 60
-- Meta Description (160): ${stats.charCount} / 160
-
-Generated: ${new Date().toLocaleString()}`;
-
-        navigator.clipboard.writeText(statsText).then(() => {
-            this.showToast('✓ Stats copied to clipboard!', 'success');
-        }).catch(() => {
-            this.showToast('✗ Failed to copy stats', 'error');
-        });
+    class CaseConverter {
+        static toUpperCase(text) { return text.toUpperCase(); }
+        static toLowerCase(text) { return text.toLowerCase(); }
+        static toTitleCase(text) { return text.toLowerCase().split(/\s+/).map((word) => word ? word.charAt(0).toUpperCase() + word.slice(1) : word).join(' '); }
+        static toSentenceCase(text) { const trimmed = text.trim(); return trimmed ? trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase() : text; }
+        static toCamelCase(text) { return text.trim().toLowerCase().replace(/[^a-z0-9]+/g, ' ').split(/\s+/).map((word, index) => index ? word.charAt(0).toUpperCase() + word.slice(1) : word).join(''); }
+        static toPascalCase(text) { return text.trim().toLowerCase().replace(/[^a-z0-9]+/g, ' ').split(/\s+/).map((word) => word ? word.charAt(0).toUpperCase() + word.slice(1) : '').join(''); }
+        static toSnakeCase(text) { return text.trim().replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, ''); }
+        static toKebabCase(text) { return text.trim().replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, ''); }
+        static toConstantCase(text) { return this.toSnakeCase(text).toUpperCase(); }
+        static toAlternatingCase(text) { let i = 0; return text.split('').map((char) => /[a-z]/i.test(char) ? (i++ % 2 ? char.toUpperCase() : char.toLowerCase()) : char).join(''); }
+        static toInverseCase(text) { return text.split('').map((char) => char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()).join(''); }
     }
 
-    /**
-     * Show confirmation before clearing text
-     */
-    confirmClear() {
-        if (this.textInput.value.trim().length === 0) {
-            this.showToast('ℹ Text area is already empty', 'info');
-            return;
-        }
-
-        this.showModal(
-            'Clear Text?',
-            'Are you sure you want to clear all text? This action cannot be undone.',
-            [
-                { text: 'Cancel', className: 'btn-secondary', callback: () => this.closeModal() },
-                { text: 'Clear', className: 'btn-danger', callback: () => this.clearText() }
-            ]
-        );
+    function initCaseConverter() {
+        const input = $('caseInput');
+        if (!input) return;
+        const update = () => {
+            const text = input.value;
+            const values = {
+                uppercaseOutput: CaseConverter.toUpperCase(text),
+                lowercaseOutput: CaseConverter.toLowerCase(text),
+                titlecaseOutput: CaseConverter.toTitleCase(text),
+                sentencecaseOutput: CaseConverter.toSentenceCase(text),
+                camelcaseOutput: CaseConverter.toCamelCase(text),
+                pascalcaseOutput: CaseConverter.toPascalCase(text),
+                snakecaseOutput: CaseConverter.toSnakeCase(text),
+                kebabcaseOutput: CaseConverter.toKebabCase(text),
+                constantcaseOutput: CaseConverter.toConstantCase(text),
+                alternatingcaseOutput: CaseConverter.toAlternatingCase(text),
+                inversecaseOutput: CaseConverter.toInverseCase(text)
+            };
+            Object.entries(values).forEach(([id, value]) => { $(id).textContent = value; });
+        };
+        input.addEventListener('input', update);
+        update();
     }
 
-    /**
-     * Clear the text area
-     */
-    clearText() {
-        this.textInput.value = '';
-        this.textInput.focus();
-        this.updateStats();
-        this.closeModal();
-        this.showToast('✓ Text cleared', 'success');
+    function initLineBreaks() {
+        const input = $('lineInput');
+        if (!input) return;
+        const update = () => {
+            let text = input.value.replace(/\s*\n\s*/g, ' ');
+            if ($('collapseWhitespace').checked) text = text.replace(/[ \t]{2,}/g, ' ');
+            if ($('trimText').checked) text = text.trim();
+            $('lineOutput').value = text;
+        };
+        [input, $('collapseWhitespace'), $('trimText')].forEach((el) => el.addEventListener('input', update));
+        update();
     }
 
-    /**
-     * Toggle details section visibility
-     */
-    toggleDetails() {
-        const isHidden = this.detailsSection.classList.contains('hidden');
-
-        if (isHidden) {
-            this.detailsSection.classList.remove('hidden');
-            this.detailsToggleText.textContent = 'Hide Details';
-            this.detailsToggle.setAttribute('aria-expanded', 'true');
-            localStorage.setItem('detailsVisible', 'true');
-        } else {
-            this.detailsSection.classList.add('hidden');
-            this.detailsToggleText.textContent = 'Show Details';
-            this.detailsToggle.setAttribute('aria-expanded', 'false');
-            localStorage.setItem('detailsVisible', 'false');
-        }
+    function initDedupe() {
+        const input = $('dedupeInput');
+        if (!input) return;
+        const update = () => {
+            const seen = new Set();
+            const out = [];
+            input.value.split(/\r?\n/).forEach((line) => {
+                const compareBase = $('dedupeTrim').checked ? line.trim() : line;
+                const key = $('dedupeCase').checked ? compareBase.toLowerCase() : compareBase;
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    out.push($('dedupeTrim').checked ? line.trim() : line);
+                }
+            });
+            $('dedupeOutput').value = out.join('\n');
+            $('dedupeStats').textContent = `${Math.max(0, input.value.split(/\r?\n/).length - out.length)} lines removed.`;
+        };
+        [input, $('dedupeTrim'), $('dedupeCase')].forEach((el) => el.addEventListener('input', update));
+        update();
     }
 
-    /**
-     * Handle keyboard shortcuts
-     */
-    handleKeyboardShortcuts(e) {
-        // Ctrl+Shift+C or Cmd+Shift+C to copy stats
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
-            e.preventDefault();
-            this.copyStats();
-        }
-
-        // Ctrl+Shift+L or Cmd+Shift+L to clear
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'L') {
-            e.preventDefault();
-            this.confirmClear();
-        }
-
-        // Ctrl+Shift+D or Cmd+Shift+D to toggle details
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'D') {
-            e.preventDefault();
-            this.toggleDetails();
-        }
+    function initSlug() {
+        const input = $('slugInput');
+        if (!input) return;
+        const stop = new Set('a an and are as at be but by for from how in into is it of on or the this to with your'.split(' '));
+        const update = () => {
+            const sep = $('slugSeparator').value;
+            let words = input.value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().match(/[a-z0-9]+/g) || [];
+            if ($('slugStopWords').checked) words = words.filter((word) => !stop.has(word));
+            $('slugOutput').value = words.join(sep);
+        };
+        [input, $('slugSeparator'), $('slugStopWords')].forEach((el) => el.addEventListener('input', update));
+        update();
     }
 
-    /**
-     * Format numbers with commas
-     */
-    formatNumber(num) {
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-
-    /**
-     * Add visual update animation
-     */
-    addUpdateAnimation(element) {
-        element.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            element.style.transition = 'transform 200ms ease-out';
-            element.style.transform = 'scale(1)';
-        }, 0);
-    }
-
-    /**
-     * Show toast notification
-     */
-    showToast(message, type = 'info', duration = 3000) {
-        const toast = document.createElement('div');
-        toast.className = `toast toast-${type}`;
-        toast.textContent = message;
-        toast.setAttribute('role', 'status');
-        toast.setAttribute('aria-live', 'polite');
-        document.body.appendChild(toast);
-
-        // Auto-remove
-        setTimeout(() => {
-            toast.classList.add('removing');
-            setTimeout(() => toast.remove(), 300);
-        }, duration);
-    }
-
-    /**
-     * Show confirmation modal
-     */
-    showModal(title, message, buttons) {
-        let modal = document.getElementById('confirmModal');
-        
-        if (!modal) {
-            modal = document.createElement('div');
-            modal.id = 'confirmModal';
-            modal.className = 'modal-overlay';
-            modal.innerHTML = `
-                <div class="modal">
-                    <h2></h2>
-                    <p></p>
-                    <div class="modal-buttons"></div>
-                </div>
-            `;
-            document.body.appendChild(modal);
-        }
-
-        modal.querySelector('h2').textContent = title;
-        modal.querySelector('p').textContent = message;
-        
-        const buttonsContainer = modal.querySelector('.modal-buttons');
-        buttonsContainer.innerHTML = '';
-
-        buttons.forEach(btn => {
-            const button = document.createElement('button');
-            button.className = `btn ${btn.className}`;
-            button.textContent = btn.text;
-            button.addEventListener('click', btn.callback);
-            buttonsContainer.appendChild(button);
-        });
-
-        modal.classList.add('active');
-
-        // Allow Escape to close
-        const escapeHandler = (e) => {
-            if (e.key === 'Escape') {
-                this.closeModal();
-                document.removeEventListener('keydown', escapeHandler);
+    function initLorem() {
+        const output = $('loremOutput');
+        if (!output) return;
+        const sentences = [
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Integer vitae justo eget magna fermentum iaculis.',
+            'Praesent commodo cursus magna, vel scelerisque nisl consectetur.',
+            'Donec ullamcorper nulla non metus auctor fringilla.',
+            'Aenean lacinia bibendum nulla sed consectetur.',
+            'Curabitur blandit tempus porttitor.'
+        ];
+        const update = () => {
+            const count = Math.max(1, Math.min(20, parseInt($('loremCount').value, 10) || 1));
+            const type = $('loremType').value;
+            if (type === 'words') {
+                output.value = sentences.join(' ').replace(/[^A-Za-z\s]/g, '').toLowerCase().split(/\s+/).slice(0, count).join(' ');
+            } else if (type === 'sentences') {
+                output.value = Array.from({ length: count }, (_, i) => sentences[i % sentences.length]).join(' ');
+            } else {
+                output.value = Array.from({ length: count }, (_, i) => `${sentences[i % sentences.length]} ${sentences[(i + 1) % sentences.length]} ${sentences[(i + 2) % sentences.length]}`).join('\n\n');
             }
         };
-        document.addEventListener('keydown', escapeHandler);
-
-        // Focus first button
-        setTimeout(() => {
-            modal.querySelector('button')?.focus();
-        }, 0);
+        [$('loremType'), $('loremCount')].forEach((el) => el.addEventListener('input', update));
+        update();
     }
 
-    /**
-     * Close modal
-     */
-    closeModal() {
-        const modal = document.getElementById('confirmModal');
-        if (modal) {
-            modal.classList.remove('active');
-        }
+    function initReadingTime() {
+        const input = $('readingInput');
+        if (!input) return;
+        const update = () => {
+            const count = wordsOf(input.value).length;
+            $('rtWords').textContent = formatNumber(count);
+            $('rtReading').textContent = timeLabel(count, parseInt($('readingWpm').value, 10) || 225);
+            $('rtSpeaking').textContent = timeLabel(count, parseInt($('speakingWpm').value, 10) || 140);
+        };
+        [input, $('readingWpm'), $('speakingWpm')].forEach((el) => el.addEventListener('input', update));
+        update();
     }
-}
 
-/**
- * Initialize app when DOM is ready
- */
-document.addEventListener('DOMContentLoaded', () => {
-    new CharacterCounter();
-
-    // Restore details visibility from localStorage
-    const detailsVisible = localStorage.getItem('detailsVisible') === 'true';
-    const detailsSection = document.getElementById('detailsSection');
-    const detailsToggle = document.getElementById('detailsToggle');
-    const detailsToggleText = document.getElementById('detailsToggleText');
-
-    if (detailsVisible) {
-        detailsSection.classList.remove('hidden');
-        detailsToggleText.textContent = 'Hide Details';
-        detailsToggle.setAttribute('aria-expanded', 'true');
-    } else {
-        detailsToggle.setAttribute('aria-expanded', 'false');
-    }
-});
+    document.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+        initCopyButtons();
+        initHomeCounter();
+        initWordCounter();
+        initCaseConverter();
+        initLineBreaks();
+        initDedupe();
+        initSlug();
+        initLorem();
+        initReadingTime();
+    });
+}());

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create clean URL slugs with separator and stop-word options in your browser.">
+  <meta name="author" content="Paul O&#x27;Donnell">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.character-counter.pro/slug-generator/">
+  <meta property="og:title" content="Slug Generator | Create Clean URL Slugs">
+  <meta property="og:description" content="Create clean URL slugs with separator and stop-word options in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.character-counter.pro/slug-generator/">
+  <meta property="og:site_name" content="Character Counter Pro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Slug Generator | Create Clean URL Slugs">
+  <meta name="twitter:description" content="Create clean URL slugs with separator and stop-word options in your browser.">
+  <title>Slug Generator | Create Clean URL Slugs</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%234F46E5'>T</text></svg>">
+  
+</head>
+<body>
+  <div class="skip-link"><a href="#main-content">Skip to main content</a></div>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>Slug Generator</h1>
+        <p class="tagline">Turn titles into clean, readable URLs</p>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </header>
+    <nav class="site-nav" aria-label="Primary navigation">
+  <a href="../index.html">Character counter</a>
+  <a href="../tools/">Tools</a>
+  <a href="../character-limits-cheat-sheet.html">Cheat sheet</a>
+  <a href="../blog/">Blog</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Contact</a>
+</nav>
+    <main id="main-content" class="main-content">
+<section class="input-section tool-panel" data-tool="slug"><label for="slugInput" class="label">Title or phrase:</label><textarea id="slugInput" class="textarea" placeholder="How to Write Better Meta Descriptions"></textarea><div class="control-row"><label for="slugSeparator">Separator</label><select id="slugSeparator" class="wpm-select"><option value="-">Hyphen</option><option value="_">Underscore</option></select><label><input type="checkbox" id="slugStopWords" checked> Remove common stop words</label></div><label for="slugOutput" class="label">Generated slug:</label><input id="slugOutput" class="text-input" type="text" readonly aria-live="polite"><button class="btn btn-secondary copy-output" data-target="slugOutput">Copy slug</button></section><section class="content-section"><h2 class="section-heading">What it does and how to use it</h2><p>The slug generator turns a title or phrase into a URL-friendly string. It lowercases text, removes punctuation, normalises accents, replaces spaces with your chosen separator and can remove common stop words such as "the", "and" and "of". Paste the title, choose hyphen or underscore, then copy the result.</p><p>Use it for blog URLs, help-centre articles, static file names, campaign pages and content migration spreadsheets. It is a formatting tool, not an SEO guarantee. A good slug is short, readable and stable enough that you will not regret publishing it.</p></section><section class="content-section"><h2 class="section-heading">Reference notes for URL slugs</h2><p>Hyphenated slugs are the normal choice for public web pages: <code>seo-meta-description-examples</code> is easier to read than a packed string. Underscores can still be useful for internal files, data exports or systems that already use them. Keep one convention per site where possible. Mixed separators create messy analytics reports and make migration checks harder.</p><p>Stop words are a judgment call. Removing "the" and "a" often makes a slug shorter without changing meaning. Removing every small word can make the result awkward. "State of the market report" becomes <code>state-market-report</code>, which is acceptable, but "to be or not to be" loses its meaning if every stop word disappears. The checkbox gives you a fast draft, not a replacement for reading the result.</p><p>Length matters because URLs are shared, pasted into documents and read aloud in support conversations. A 90-character slug can still work, but a 35-character slug is easier to scan. Keep the key noun and modifier. Remove dates unless the date is part of the permanent topic, such as an annual report. Avoid campaign jargon that will look strange next year.</p><table class="example-table"><thead><tr><th>Title</th><th>Slug</th><th>Note</th></tr></thead><tbody><tr><td>How to Write Better Meta Descriptions</td><td><code>write-better-meta-descriptions</code></td><td>Short and readable.</td></tr><tr><td>The Complete Guide to SMS Character Limits</td><td><code>complete-guide-sms-character-limits</code></td><td>Keeps the topic phrase.</td></tr><tr><td>Q4 Launch Notes: UK and Ireland</td><td><code>q4-launch-notes-uk-ireland</code></td><td>Punctuation removed, meaning retained.</td></tr></tbody></table></section><section class="content-section"><h2 class="section-heading">Worked slug example</h2><p>Take the title "The Complete Guide to Character Limits on Major Platforms". With stop words removed and hyphens selected, the slug becomes <code>complete-guide-character-limits-major-platforms</code>. That is readable, but a human editor might choose <code>character-limits-major-platforms</code> because it is shorter and keeps the core topic. The generated slug is a strong first draft, not an instruction to publish unchanged.</p><p>When changing an existing slug, think about redirects. A tidy new URL can create broken links if the old address already has backlinks, bookmarks or search visibility. For published pages, generate the candidate, compare it with the existing URL and only change it when the benefit is worth the redirect work.</p></section><section class="content-section"><h2 class="section-heading">Quality checks before publishing</h2><p>After using the tool, do one final human check in the destination context. Text that is technically valid can still be awkward when it appears inside a button, search result, app store field, spreadsheet, social preview or code review. Check the longest realistic version, including names, dates, tracking codes, translated words and any suffixes added by the publishing system.</p><p>Keep a short note of the final count when the work needs approval. A note such as "title, 57 characters" or "script, 690 spoken words" gives reviewers a concrete constraint and reduces subjective back-and-forth. The tool gives the measurement, but the publishing context decides whether the result is actually good.</p></section><section class="content-section"><h2 class="section-heading">Related tools</h2><ul class="related-links"><li><a href="../index.html">Check character limits with the character counter</a></li><li><a href="../word-counter/">Analyse structure with the word counter</a></li><li><a href="../case-converter/">Convert text case formats</a></li><li><a href="../tools/">Back to the text tools hub</a></li></ul></section><section class="faq-section"><h2 class="section-heading">Frequently asked questions</h2><div class="faq-container"><div class="faq-item"><h3 class="faq-question">Does this tool upload my text?</h3><p class="faq-answer">No. The tool runs in your browser with vanilla JavaScript. Your pasted text is used on the page for the current task and is not submitted to a Character Counter Pro server.</p></div><div class="faq-item"><h3 class="faq-question">Can I use it on a phone?</h3><p class="faq-answer">Yes. The controls are designed to stack on small screens, labels remain visible, and results update with keyboard, touch and paste input.</p></div><div class="faq-item"><h3 class="faq-question">Should I still check the final platform?</h3><p class="faq-answer">Yes. These tools are editing aids. Always test final copy in the CMS, social composer, app store, email platform or codebase before publishing.</p></div></div></section>
+    </main>
+    <footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Character Counter Pro. Maintained by Chameleon Partnership.</p>
+    <div class="footer-links">
+      <a href="../index.html" class="footer-link">Character counter</a>
+      <a href="../tools/" class="footer-link">Tools</a>
+      <a href="../character-limits-cheat-sheet.html" class="footer-link">Cheat sheet</a>
+      <a href="../blog/" class="footer-link">Blog</a>
+      <a href="../privacy.html" class="footer-link">Privacy Policy</a>
+      <a href="../terms.html" class="footer-link">Terms of Service</a>
+      <a href="../about.html" class="footer-link">About</a>
+      <a href="../contact.html" class="footer-link">Contact</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <div class="cookie-consent" role="region" aria-label="Cookie notice" hidden>
+    <p>We use essential browser storage for preferences. Future advertising partners may use cookies if ads are enabled. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="btn btn-secondary" data-cookie-choice="dismissed">Dismiss</button>
+      <button type="button" class="btn btn-primary" data-cookie-choice="accepted">Accept</button>
+    </div>
+  </div>
+  <script src="../assets/js/consent.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

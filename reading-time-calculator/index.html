@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estimate reading and speaking time across articles, scripts, help copy and presentations.">
+  <meta name="author" content="Paul O&#x27;Donnell">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.character-counter.pro/reading-time-calculator/">
+  <meta property="og:title" content="Reading Time Calculator | Reading and Speaking Time">
+  <meta property="og:description" content="Estimate reading and speaking time across articles, scripts, help copy and presentations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.character-counter.pro/reading-time-calculator/">
+  <meta property="og:site_name" content="Character Counter Pro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reading Time Calculator | Reading and Speaking Time">
+  <meta name="twitter:description" content="Estimate reading and speaking time across articles, scripts, help copy and presentations.">
+  <title>Reading Time Calculator | Reading and Speaking Time</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%234F46E5'>T</text></svg>">
+  
+</head>
+<body>
+  <div class="skip-link"><a href="#main-content">Skip to main content</a></div>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>Reading Time Calculator</h1>
+        <p class="tagline">Estimate how long text takes to read or say aloud</p>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </header>
+    <nav class="site-nav" aria-label="Primary navigation">
+  <a href="../index.html">Character counter</a>
+  <a href="../tools/">Tools</a>
+  <a href="../character-limits-cheat-sheet.html">Cheat sheet</a>
+  <a href="../blog/">Blog</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Contact</a>
+</nav>
+    <main id="main-content" class="main-content">
+<section class="input-section tool-panel" data-tool="reading-time"><label for="readingInput" class="label">Paste the text to time:</label><textarea id="readingInput" class="textarea" placeholder="Paste an article, talk script or training note..."></textarea><div class="control-row"><label for="readingWpm">Reading speed</label><input id="readingWpm" class="number-input" type="number" min="100" max="500" value="225"><span>words per minute</span><label for="speakingWpm">Speaking speed</label><input id="speakingWpm" class="number-input" type="number" min="80" max="220" value="140"><span>words per minute</span></div><div class="stats-grid" aria-live="polite"><div class="stat-card"><div class="stat-value" id="rtWords">0</div><div class="stat-label">Words</div></div><div class="stat-card"><div class="stat-value" id="rtReading">0 min</div><div class="stat-label">Reading time</div></div><div class="stat-card"><div class="stat-value" id="rtSpeaking">0 min</div><div class="stat-label">Speaking time</div></div></div></section><section class="content-section"><h2 class="section-heading">What it does and how to use it</h2><p>The reading time calculator estimates how long a draft takes to read silently and how long it takes to speak aloud. Paste text, adjust the reading and speaking speeds, then use the result for article labels, webinar scripts, training notes, voiceovers and meeting talks.</p><p>The calculation is simple: word count divided by words per minute. The value comes from choosing a realistic speed for the content. Dense legal guidance should not use the same speed as a light newsletter.</p></section><section class="content-section"><h2 class="section-heading">Reference notes for timing text</h2><p>Silent reading is commonly estimated around 200 to 250 words per minute for general web copy. Readers slow down when content contains unfamiliar terms, figures, code, legal duties or step-by-step instructions. They speed up when the topic is familiar and the sentences are short. A 1,000-word article at 200 words per minute is about five minutes. At 250 words per minute, it is about four minutes.</p><p>Speaking time is slower because speech needs pauses, emphasis and breath. A polished presentation often lands around 130 to 150 words per minute. A voiceover for training can be nearer 120 if learners need to follow on-screen actions. A 700-word script at 140 words per minute is about five minutes. If the same script includes demos, transitions or audience questions, the session needs more time than the words alone suggest.</p><p>Timing is useful for editorial promises. If a page says it is a quick guide but takes nine minutes to read, the structure may need a shorter answer first. If a five-minute talk script contains 1,100 words, the speaker will rush. If a support article takes six minutes to read, add a short summary and steps at the top.</p><table class="example-table"><thead><tr><th>Content</th><th>Good speed</th><th>Why</th></tr></thead><tbody><tr><td>General article</td><td>225 WPM</td><td>Balanced web reading estimate.</td></tr><tr><td>Technical guide</td><td>180 to 200 WPM</td><td>Readers pause for detail.</td></tr><tr><td>Presentation script</td><td>130 to 150 WPM</td><td>Allows emphasis and breathing.</td></tr><tr><td>Training voiceover</td><td>110 to 130 WPM</td><td>Leaves room to follow actions.</td></tr></tbody></table></section><section class="content-section"><h2 class="section-heading">Worked timing example</h2><p>A 900-word help article at 225 words per minute is about four minutes. If the same article contains setup steps, screenshots and configuration names, 180 words per minute may be more honest, making it about five minutes. That difference matters when the page is labelled as a quick fix. The timing may suggest adding a short answer at the top.</p><p>For a presentation, 900 words at 140 words per minute is about six and a half minutes before pauses. If the slot is five minutes, the script needs to lose roughly 200 words or become a two-part talk. Timing the text before rehearsal gives the speaker a realistic starting point.</p></section><section class="content-section"><h2 class="section-heading">Quality checks before publishing</h2><p>After using the tool, do one final human check in the destination context. Text that is technically valid can still be awkward when it appears inside a button, search result, app store field, spreadsheet, social preview or code review. Check the longest realistic version, including names, dates, tracking codes, translated words and any suffixes added by the publishing system.</p><p>Keep a short note of the final count when the work needs approval. A note such as "title, 57 characters" or "script, 690 spoken words" gives reviewers a concrete constraint and reduces subjective back-and-forth. The tool gives the measurement, but the publishing context decides whether the result is actually good.</p></section><section class="content-section"><h2 class="section-heading">Related tools</h2><ul class="related-links"><li><a href="../index.html">Check character limits with the character counter</a></li><li><a href="../word-counter/">Analyse structure with the word counter</a></li><li><a href="../case-converter/">Convert text case formats</a></li><li><a href="../tools/">Back to the text tools hub</a></li></ul></section><section class="faq-section"><h2 class="section-heading">Frequently asked questions</h2><div class="faq-container"><div class="faq-item"><h3 class="faq-question">Does this tool upload my text?</h3><p class="faq-answer">No. The tool runs in your browser with vanilla JavaScript. Your pasted text is used on the page for the current task and is not submitted to a Character Counter Pro server.</p></div><div class="faq-item"><h3 class="faq-question">Can I use it on a phone?</h3><p class="faq-answer">Yes. The controls are designed to stack on small screens, labels remain visible, and results update with keyboard, touch and paste input.</p></div><div class="faq-item"><h3 class="faq-question">Should I still check the final platform?</h3><p class="faq-answer">Yes. These tools are editing aids. Always test final copy in the CMS, social composer, app store, email platform or codebase before publishing.</p></div></div></section>
+    </main>
+    <footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Character Counter Pro. Maintained by Chameleon Partnership.</p>
+    <div class="footer-links">
+      <a href="../index.html" class="footer-link">Character counter</a>
+      <a href="../tools/" class="footer-link">Tools</a>
+      <a href="../character-limits-cheat-sheet.html" class="footer-link">Cheat sheet</a>
+      <a href="../blog/" class="footer-link">Blog</a>
+      <a href="../privacy.html" class="footer-link">Privacy Policy</a>
+      <a href="../terms.html" class="footer-link">Terms of Service</a>
+      <a href="../about.html" class="footer-link">About</a>
+      <a href="../contact.html" class="footer-link">Contact</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <div class="cookie-consent" role="region" aria-label="Cookie notice" hidden>
+    <p>We use essential browser storage for preferences. Future advertising partners may use cookies if ads are enabled. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="btn btn-secondary" data-cookie-choice="dismissed">Dismiss</button>
+      <button type="button" class="btn btn-primary" data-cookie-choice="accepted">Accept</button>
+    </div>
+  </div>
+  <script src="../assets/js/consent.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

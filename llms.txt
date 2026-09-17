@@ -1,0 +1,13 @@
+# Character Counter Pro
+
+Character Counter Pro is a static, privacy-first text tools hub at https://www.character-counter.pro.
+
+Important pages:
+- https://www.character-counter.pro/
+- https://www.character-counter.pro/tools/
+- https://www.character-counter.pro/word-counter/
+- https://www.character-counter.pro/case-converter/
+- https://www.character-counter.pro/character-limits-cheat-sheet.html
+- https://www.character-counter.pro/blog/
+
+All canonical URLs use the www host. Tools run client-side in the browser.

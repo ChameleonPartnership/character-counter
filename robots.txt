@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.character-counter.pro/sitemap.xml
+

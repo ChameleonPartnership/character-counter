@@ -7,7 +7,7 @@
         banner.setAttribute('role', 'region');
         banner.setAttribute('aria-label', 'Cookie notice');
         banner.innerHTML = `
-            <p>We use essential browser storage for preferences. Google AdSense may use cookies to show ads and measure performance. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+            <p>We use essential browser storage for preferences. Future advertising partners may use cookies if ads are enabled. See our <a href="/privacy.html">Privacy Policy</a>.</p>
             <div class="cookie-consent-actions">
                 <button type="button" class="btn btn-secondary" data-cookie-choice="dismissed">Dismiss</button>
                 <button type="button" class="btn btn-primary" data-cookie-choice="accepted">Accept</button>

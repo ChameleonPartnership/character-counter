@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Strip line breaks, collapse whitespace and trim pasted text from PDFs, emails and documents.">
+  <meta name="author" content="Paul O&#x27;Donnell">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.character-counter.pro/remove-line-breaks/">
+  <meta property="og:title" content="Remove Line Breaks | Clean Pasted Text">
+  <meta property="og:description" content="Strip line breaks, collapse whitespace and trim pasted text from PDFs, emails and documents.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.character-counter.pro/remove-line-breaks/">
+  <meta property="og:site_name" content="Character Counter Pro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Remove Line Breaks | Clean Pasted Text">
+  <meta name="twitter:description" content="Strip line breaks, collapse whitespace and trim pasted text from PDFs, emails and documents.">
+  <title>Remove Line Breaks | Clean Pasted Text</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%234F46E5'>T</text></svg>">
+  
+</head>
+<body>
+  <div class="skip-link"><a href="#main-content">Skip to main content</a></div>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>Remove Line Breaks</h1>
+        <p class="tagline">Clean broken pasted text without uploading it</p>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </header>
+    <nav class="site-nav" aria-label="Primary navigation">
+  <a href="../index.html">Character counter</a>
+  <a href="../tools/">Tools</a>
+  <a href="../character-limits-cheat-sheet.html">Cheat sheet</a>
+  <a href="../blog/">Blog</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Contact</a>
+</nav>
+    <main id="main-content" class="main-content">
+<section class="input-section tool-panel" data-tool="line-breaks"><label for="lineInput" class="label">Text with unwanted line breaks:</label><textarea id="lineInput" class="textarea" placeholder="Paste text copied from a PDF, email or document..."></textarea><div class="control-row"><label><input type="checkbox" id="collapseWhitespace" checked> Collapse repeated spaces</label><label><input type="checkbox" id="trimText" checked> Trim start and end</label></div><label for="lineOutput" class="label">Cleaned text:</label><textarea id="lineOutput" class="textarea" readonly aria-live="polite"></textarea><button class="btn btn-secondary copy-output" data-target="lineOutput">Copy cleaned text</button></section><section class="content-section"><h2 class="section-heading">What it does and how to use it</h2><p>This tool removes unwanted line breaks from text copied out of PDFs, emails, old CMS fields, notes apps and narrow document columns. Paste the broken text, choose whether to collapse repeated spaces and trim the ends, then copy the cleaned version.</p><p>It is designed for cleanup before editing. It does not rewrite your words, correct grammar or send text away for processing. The only change is structural: line breaks become spaces, repeated whitespace can be reduced, and stray leading or trailing spaces can be removed.</p></section><section class="content-section"><h2 class="section-heading">Reference notes for line breaks</h2><p>Line breaks are harmless when they mark real paragraphs. They become a problem when they come from visual wrapping. PDF text often copies with a break at the end of every printed line. Email threads can add breaks around quoted replies. Spreadsheet exports may include uneven spacing around cells. If you paste that text into a CMS, the layout can look jagged and the word count can be misleading.</p><p>The safest workflow is to clean line wrapping before doing a final character count. For example, a copied paragraph may arrive as six short lines. Removing those breaks creates one paragraph that can be counted, shortened and pasted into a meta field or product description. If the original contains meaningful paragraph breaks, clean one paragraph at a time or reinsert blank lines after cleaning.</p><p>Whitespace also affects downstream systems. A double space can push an SMS over 160 characters. A line break inside a title can become a strange space in search results. Extra spaces in a slug source can create repeated separators. Cleaning does not make text better by itself, but it removes noise before the real editing starts.</p><table class="example-table"><thead><tr><th>Problem</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td>PDF wrap</td><td>Each visual line breaks mid-sentence.</td><td>One paragraph with normal spacing.</td></tr><tr><td>Email quote</td><td>Indented lines with uneven spaces.</td><td>Plain text ready for editing.</td></tr><tr><td>CMS paste</td><td>Hidden line breaks in a title field.</td><td>Single-line title for preview checks.</td></tr></tbody></table></section><section class="content-section"><h2 class="section-heading">Worked cleanup example</h2><p>A common PDF paste might produce this structure: "Search snippets should be written
+for the reader first, then checked
+against the available display space." The words are fine, but the line breaks come from the PDF column, not the sentence. Cleaning it gives: "Search snippets should be written for the reader first, then checked against the available display space." That version can be pasted into a CMS field and counted accurately.</p><p>Use caution with poems, addresses, code snippets and legal clauses where line breaks may carry meaning. The tool treats line breaks as cleanup noise. If the breaks are part of the content, clean smaller sections or leave the original structure intact.</p></section><section class="content-section"><h2 class="section-heading">Quality checks before publishing</h2><p>After using the tool, do one final human check in the destination context. Text that is technically valid can still be awkward when it appears inside a button, search result, app store field, spreadsheet, social preview or code review. Check the longest realistic version, including names, dates, tracking codes, translated words and any suffixes added by the publishing system.</p><p>Keep a short note of the final count when the work needs approval. A note such as "title, 57 characters" or "script, 690 spoken words" gives reviewers a concrete constraint and reduces subjective back-and-forth. The tool gives the measurement, but the publishing context decides whether the result is actually good.</p></section><section class="content-section"><h2 class="section-heading">Related tools</h2><ul class="related-links"><li><a href="../index.html">Check character limits with the character counter</a></li><li><a href="../word-counter/">Analyse structure with the word counter</a></li><li><a href="../case-converter/">Convert text case formats</a></li><li><a href="../tools/">Back to the text tools hub</a></li></ul></section><section class="faq-section"><h2 class="section-heading">Frequently asked questions</h2><div class="faq-container"><div class="faq-item"><h3 class="faq-question">Does this tool upload my text?</h3><p class="faq-answer">No. The tool runs in your browser with vanilla JavaScript. Your pasted text is used on the page for the current task and is not submitted to a Character Counter Pro server.</p></div><div class="faq-item"><h3 class="faq-question">Can I use it on a phone?</h3><p class="faq-answer">Yes. The controls are designed to stack on small screens, labels remain visible, and results update with keyboard, touch and paste input.</p></div><div class="faq-item"><h3 class="faq-question">Should I still check the final platform?</h3><p class="faq-answer">Yes. These tools are editing aids. Always test final copy in the CMS, social composer, app store, email platform or codebase before publishing.</p></div></div></section>
+    </main>
+    <footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Character Counter Pro. Maintained by Chameleon Partnership.</p>
+    <div class="footer-links">
+      <a href="../index.html" class="footer-link">Character counter</a>
+      <a href="../tools/" class="footer-link">Tools</a>
+      <a href="../character-limits-cheat-sheet.html" class="footer-link">Cheat sheet</a>
+      <a href="../blog/" class="footer-link">Blog</a>
+      <a href="../privacy.html" class="footer-link">Privacy Policy</a>
+      <a href="../terms.html" class="footer-link">Terms of Service</a>
+      <a href="../about.html" class="footer-link">About</a>
+      <a href="../contact.html" class="footer-link">Contact</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <div class="cookie-consent" role="region" aria-label="Cookie notice" hidden>
+    <p>We use essential browser storage for preferences. Future advertising partners may use cookies if ads are enabled. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="btn btn-secondary" data-cookie-choice="dismissed">Dismiss</button>
+      <button type="button" class="btn btn-primary" data-cookie-choice="accepted">Accept</button>
+    </div>
+  </div>
+  <script src="../assets/js/consent.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

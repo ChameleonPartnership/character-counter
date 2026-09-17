@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Count words, sentences, paragraphs, reading time, speaking time and keyword density in your browser.">
+  <meta name="author" content="Paul O&#x27;Donnell">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.character-counter.pro/word-counter/">
+  <meta property="og:title" content="Word Counter | Words, Sentences and Keyword Density">
+  <meta property="og:description" content="Count words, sentences, paragraphs, reading time, speaking time and keyword density in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.character-counter.pro/word-counter/">
+  <meta property="og:site_name" content="Character Counter Pro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Word Counter | Words, Sentences and Keyword Density">
+  <meta name="twitter:description" content="Count words, sentences, paragraphs, reading time, speaking time and keyword density in your browser.">
+  <title>Word Counter | Words, Sentences and Keyword Density</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%234F46E5'>T</text></svg>">
+  
+</head>
+<body>
+  <div class="skip-link"><a href="#main-content">Skip to main content</a></div>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>Word Counter</h1>
+        <p class="tagline">Words, structure, timing and keyword density</p>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode"><span class="theme-icon">🌙</span></button>
+    </header>
+    <nav class="site-nav" aria-label="Primary navigation">
+  <a href="../index.html">Character counter</a>
+  <a href="../tools/">Tools</a>
+  <a href="../character-limits-cheat-sheet.html">Cheat sheet</a>
+  <a href="../blog/">Blog</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Contact</a>
+</nav>
+    <main id="main-content" class="main-content">
+<section class="input-section tool-panel" data-tool="word-counter"><label for="toolText" class="label">Paste or type your text:</label><textarea id="toolText" class="textarea" spellcheck="true" placeholder="Paste an article, post, script or brief..."></textarea><div class="stats-grid" aria-live="polite"><div class="stat-card"><div class="stat-value" id="wcWords">0</div><div class="stat-label">Words</div></div><div class="stat-card"><div class="stat-value" id="wcSentences">0</div><div class="stat-label">Sentences</div></div><div class="stat-card"><div class="stat-value" id="wcParagraphs">0</div><div class="stat-label">Paragraphs</div></div><div class="stat-card"><div class="stat-value" id="wcReading">0 min</div><div class="stat-label">Reading time</div></div><div class="stat-card"><div class="stat-value" id="wcSpeaking">0 min</div><div class="stat-label">Speaking time</div></div></div><label for="keywordInput" class="label">Keyword or phrase to check:</label><input id="keywordInput" class="text-input" type="text" placeholder="for example, character limit"><p id="keywordDensity" class="result-line" aria-live="polite">Keyword density: 0%</p></section><section class="content-section"><h2 class="section-heading">What it does and how to use it</h2><p>The word counter measures the shape of a draft, not just its length. Paste text to see words, sentences, paragraphs, estimated reading time, speaking time and keyword density for one phrase. It is useful for articles, scripts, product pages, academic abstracts, meta drafts and approval notes.</p><p>Use the keyword box when a page has a target phrase but you want to avoid mechanical repetition. A 900-word page with a phrase used nine times has a 1% phrase density. That can be perfectly natural if the phrase is central, but it may sound forced if every paragraph repeats the same wording.</p></section><section class="content-section"><h2 class="section-heading">Reference notes for word counts</h2><p>Reading time is usually estimated between 200 and 250 words per minute. Dense policy, technical and legal pages often sit closer to 180 to 200 words per minute because readers pause to parse detail. Light blog content can be closer to 250. Speaking time is slower. A clear presentation script often lands around 130 to 150 words per minute, while a careful training voiceover may sit near 120.</p><p>Word count also changes editorial expectations. A 150-word product description can make one promise, give one proof point and close with one action. A 700-word article can explain a problem, compare options and include examples. A 2,000-word guide needs navigation, headings and a reason for the extra depth. Counting words early helps prevent the common mismatch where a writer tries to fit a guide into a caption or writes a short answer as if it were a white paper.</p><p>Sentence and paragraph counts are quality signals. If a 600-word article has six sentences, each sentence is carrying too much. If it has one paragraph, mobile readers face a wall of text. A useful web paragraph often contains 40 to 90 words. A support answer can be shorter: one issue, one instruction and one next step.</p><table class="example-table"><thead><tr><th>Draft type</th><th>Typical range</th><th>Check</th></tr></thead><tbody><tr><td>Meta description notes</td><td>20 to 30 words</td><td>Does the page promise appear early?</td></tr><tr><td>Email announcement</td><td>120 to 250 words</td><td>Can the action be understood after the first paragraph?</td></tr><tr><td>Help article</td><td>500 to 1,200 words</td><td>Are steps split into clear paragraphs?</td></tr><tr><td>Five-minute talk</td><td>650 to 750 spoken words</td><td>Does the script leave room for pauses?</td></tr></tbody></table></section><section class="content-section"><h2 class="section-heading">Worked word count example</h2><p>A draft article with 1,250 words, 18 paragraphs and a reading time near six minutes is not automatically too long. The question is whether the structure earns that length. If the answer a reader needs is in paragraph nine, add a short summary near the top. If the article repeats the target phrase 30 times, the keyword density warning is a prompt to use natural synonyms and examples.</p><p>For scripts, use the speaking estimate before rehearsing. A 1,000-word script at 140 words per minute is just over seven minutes, and that excludes pauses, slides and questions. Cutting the script to 700 words may produce a calmer five-minute delivery.</p></section><section class="content-section"><h2 class="section-heading">Quality checks before publishing</h2><p>After using the tool, do one final human check in the destination context. Text that is technically valid can still be awkward when it appears inside a button, search result, app store field, spreadsheet, social preview or code review. Check the longest realistic version, including names, dates, tracking codes, translated words and any suffixes added by the publishing system.</p><p>Keep a short note of the final count when the work needs approval. A note such as "title, 57 characters" or "script, 690 spoken words" gives reviewers a concrete constraint and reduces subjective back-and-forth. The tool gives the measurement, but the publishing context decides whether the result is actually good.</p></section><section class="content-section"><h2 class="section-heading">Related tools</h2><ul class="related-links"><li><a href="../index.html">Check character limits with the character counter</a></li><li><a href="../word-counter/">Analyse structure with the word counter</a></li><li><a href="../case-converter/">Convert text case formats</a></li><li><a href="../tools/">Back to the text tools hub</a></li></ul></section><section class="faq-section"><h2 class="section-heading">Frequently asked questions</h2><div class="faq-container"><div class="faq-item"><h3 class="faq-question">Does this tool upload my text?</h3><p class="faq-answer">No. The tool runs in your browser with vanilla JavaScript. Your pasted text is used on the page for the current task and is not submitted to a Character Counter Pro server.</p></div><div class="faq-item"><h3 class="faq-question">Can I use it on a phone?</h3><p class="faq-answer">Yes. The controls are designed to stack on small screens, labels remain visible, and results update with keyboard, touch and paste input.</p></div><div class="faq-item"><h3 class="faq-question">Should I still check the final platform?</h3><p class="faq-answer">Yes. These tools are editing aids. Always test final copy in the CMS, social composer, app store, email platform or codebase before publishing.</p></div></div></section>
+    </main>
+    <footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Character Counter Pro. Maintained by Chameleon Partnership.</p>
+    <div class="footer-links">
+      <a href="../index.html" class="footer-link">Character counter</a>
+      <a href="../tools/" class="footer-link">Tools</a>
+      <a href="../character-limits-cheat-sheet.html" class="footer-link">Cheat sheet</a>
+      <a href="../blog/" class="footer-link">Blog</a>
+      <a href="../privacy.html" class="footer-link">Privacy Policy</a>
+      <a href="../terms.html" class="footer-link">Terms of Service</a>
+      <a href="../about.html" class="footer-link">About</a>
+      <a href="../contact.html" class="footer-link">Contact</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <div class="cookie-consent" role="region" aria-label="Cookie notice" hidden>
+    <p>We use essential browser storage for preferences. Future advertising partners may use cookies if ads are enabled. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="btn btn-secondary" data-cookie-choice="dismissed">Dismiss</button>
+      <button type="button" class="btn btn-primary" data-cookie-choice="accepted">Accept</button>
+    </div>
+  </div>
+  <script src="../assets/js/consent.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>
